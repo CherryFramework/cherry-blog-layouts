@@ -59,7 +59,8 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 			add_action( 'plugins_loaded', array( $this, '_public' ), 5 );
 			add_action( 'plugins_loaded', array( $this, '_admin' ),  5 );
 
-			add_action( 'wp_enqueue_scripts', array( $this, 'public_assets' ) );
+			// add_action( 'wp_enqueue_scripts',         array( $this, 'public_assets' ) );
+			// add_filter( 'cherry_compiler_static_css', array( $this, 'add_style_to_compiler' ) );
 		}
 
 		/**
@@ -67,6 +68,22 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 		 */
 		function public_assets() {
 			wp_enqueue_style( 'cherry-blog-style', CHERRY_BLOG_URI . 'public/assets/css/style.css', array(), CHERRY_BLOG_VERSION );
+		}
+
+		/**
+		 * Pass style handle to CSS compiler.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param array $handles CSS handles to compile.
+		 */
+		function add_style_to_compiler( $handles ) {
+			$handles = array_merge(
+				array( 'cherry-blog-style' => CHERRY_BLOG_URI . 'public/assets/css/style.css' ),
+				$handles
+			);
+
+			return $handles;
 		}
 
 		/**
