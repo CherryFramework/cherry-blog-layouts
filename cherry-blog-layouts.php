@@ -59,31 +59,18 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 			add_action( 'plugins_loaded', array( $this, '_public' ), 5 );
 			add_action( 'plugins_loaded', array( $this, '_admin' ),  5 );
 
-			// add_action( 'wp_enqueue_scripts',         array( $this, 'public_assets' ) );
-			// add_filter( 'cherry_compiler_static_css', array( $this, 'add_style_to_compiler' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'public_assets' ) );
 		}
 
 		/**
 		 * Enqueue public assets
 		 */
 		function public_assets() {
+			// css assets
 			wp_enqueue_style( 'cherry-blog-style', CHERRY_BLOG_URI . 'public/assets/css/style.css', array(), CHERRY_BLOG_VERSION );
-		}
-
-		/**
-		 * Pass style handle to CSS compiler.
-		 *
-		 * @since 1.0.0
-		 *
-		 * @param array $handles CSS handles to compile.
-		 */
-		function add_style_to_compiler( $handles ) {
-			$handles = array_merge(
-				array( 'cherry-blog-style' => CHERRY_BLOG_URI . 'public/assets/css/style.css' ),
-				$handles
-			);
-
-			return $handles;
+			// js assets
+			wp_enqueue_script( 'cherry-api', CHERRY_BLOG_URI . 'public/assets/js/cherry-api.js', array('jquery'), CHERRY_BLOG_VERSION, true );
+			wp_enqueue_script( 'cherry-blog-scripts', CHERRY_BLOG_URI . 'public/assets/js/init.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 		}
 
 		/**
@@ -159,6 +146,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 		 */
 		function _public() {
 			require CHERRY_BLOG_DIR . 'public/includes/class-cherry-blog-template-loader.php';
+			require CHERRY_BLOG_DIR . 'public/includes/class-cherry-blog-data.php';
 			require CHERRY_BLOG_DIR . 'public/includes/class-cherry-blog-tools.php';
 		}
 

@@ -51,12 +51,12 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 				),
 				'blog-layout-type' => array(
 					'type'			=> 'select',
-					'title'			=> __( 'Custom blog layout type', 'cherry-blog' ),
+					'title'			=> __( 'Filter type', 'cherry-blog' ),
 					'label'			=> '',
 					'description'	=> '',
 					'hint'			=> array(
-						'type'    => 'text',
-						'content' => __( 'Select custom blog layout type', 'cherry-blog' )
+						'type'		=> 'text',
+						'content' => __( 'Select if you want to folter posts by tag or by category', 'cherry-blog' )
 					),
 					'value'			=> 'grid',
 					'class'			=> 'width-full',
@@ -64,6 +64,23 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 						'grid'     => __( 'Grid', 'cherry-blog' ),
 						'masonry'  => __( 'Masonry', 'cherry-blog' ),
 						'timeline' => __( 'Timeline', 'cherry-blog' )
+					)
+				),
+				'blog-layout-filter' => array(
+					'type'			=> 'select',
+					'title'			=> __( 'Custom blog layout type', 'cherry-blog' ),
+					'label'			=> '',
+					'description'	=> '',
+					'hint'			=> array(
+						'type'		=> 'text',
+						'content'	=> __( 'Select custom blog layout type', 'cherry-blog' )
+					),
+					'value'			=> 'categories',
+					'class'			=> 'width-full',
+					'options'		=> array(
+						'none'			=> __( 'None', 'cherry-blog' ),
+						'categories'	=> __( 'Categories', 'cherry-blog' ),
+						'tags'			=> __( 'Tags', 'cherry-blog' ),
 					)
 				),
 				'blog-layout-pages' => array(
@@ -93,13 +110,82 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 						'is_date'              => __( 'Date archive', 'cherry-blog' )
 					)
 				),
+				'blog-layout-grid-column' => array(
+					'type'			=> 'radio',
+					'title'			=> __( 'Grid columns', 'cherry' ),
+					'description'	=> __( 'Select Grid layout pattern for pages with custom blog layout.', 'cherry' ),
+					'value'			=> 'grid-4',
+					'display_input'	=> false,
+					'options'		=> array(
+						'grid-2' => array(
+							'label'   => __( 'Grid 2', 'cherry' ),
+							'img_src' => CHERRY_BLOG_URI . '/public/assets/images/blog-layout-grid-2.svg',
+						),
+						'grid-3' => array(
+							'label'   => __( 'Grid 3', 'cherry' ),
+							'img_src' => CHERRY_BLOG_URI . '/public/assets/images/blog-layout-grid-3.svg',
+						),
+						'grid-4' => array(
+							'label'   => __( 'Grid 4', 'cherry' ),
+							'img_src' => CHERRY_BLOG_URI . '/public/assets/images/blog-layout-grid-4.svg',
+						),
+						'grid-6' => array(
+							'label'   => __( 'Grid 6', 'cherry' ),
+							'img_src' => CHERRY_BLOG_URI . '/public/assets/images/blog-layout-grid-6.svg',
+						),
+					),
+				),
 				'blog-layout-columns' => array(
 					'type'			=> 'slider',
-					'title'			=> __( 'Columns number', 'cherry' ),
-					'description'	=> __( 'Specify custom blog layout columns number', 'cherry' ),
+					'title'			=> __( 'Masonry columns number', 'cherry' ),
+					'description'	=> __( 'Specify custom masonry layout columns number', 'cherry' ),
 					'max_value'		=> 12,
 					'min_value'		=> 1,
 					'value'			=> 3,
+				),
+				'blog-layout-columns-gutter' => array(
+					'type'			=> 'slider',
+					'title'			=> __( 'Masonry columns gutter', 'cherry' ),
+					'description'	=> __( 'Specify custom masonry layout columns gutter(px)', 'cherry' ),
+					'max_value'		=> 100,
+					'min_value'		=> 0,
+					'value'			=> 10,
+				),
+				'blog-layout-timeline-item-width' => array(
+					'type'			=> 'slider',
+					'title'			=> __( 'Timeline item width', 'cherry' ),
+					'description'	=> __( 'Specify custom item width for Timeline blog layout(%)', 'cherry' ),
+					'max_value'		=> 50,
+					'min_value'		=> 10,
+					'value'			=> 45,
+				),
+				'blog-layout-timeline-breakpoint' => array(
+					'type'			=> 'select',
+					'title'			=> __( 'Timeline breakpoint', 'cherry-blog' ),
+					'label'			=> '',
+					'description'	=> '',
+					'hint'			=> array(
+						'type'		=> 'text',
+						'content'	=> __( 'Select timeline breakpoint type', 'cherry-blog' )
+					),
+					'value'			=> 'grid',
+					'class'			=> 'width-full',
+					'options'		=> array(
+						'year'		=> __( 'Year', 'cherry-blog' ),
+						'month'		=> __( 'Month', 'cherry-blog' ),
+						'day'		=> __( 'Day', 'cherry-blog' )
+					)
+				),
+				'blog-layout-timeline-breakpoint-date-format' => array(
+					'type'			=> 'text',
+					'title'			=> __('Timeline breakpoint date format', 'cherry'),
+					'label'			=> '',
+					'description'	=> 'Specify the date format.',
+					'hint'			=>  array(
+						'type'		=> 'text',
+						'content'	=> __('More info <a href="https://codex.wordpress.org/Formatting_Date_and_Time">here</a> ', 'cherry'),
+					),
+					'value'			=> 'F j, Y',
 				),
 				'blog-layout-grid-type' => array(
 					'type'			=> 'radio',

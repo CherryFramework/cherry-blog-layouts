@@ -316,7 +316,8 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 			$args = array(
 				'pagename' => false,
 				'name'     => false,
-				'paged'    => $paged
+				'paged'    => $paged,
+				'posts_per_page' => Cherry_Blog_Layouts::get_option( 'blog-layout-post-per-page', 9 )
 			);
 
 			$wp_query = new WP_Query( $args );
