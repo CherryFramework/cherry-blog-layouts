@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="<?php echo apply_filters( 'cherry_blog_layout_wrapper_class', 'masonry-layout', 'masonry' ); ?>"<?php echo Cherry_Blog_Layouts_Tools::wrapper_attrs() ?>>
 	<?php echo Cherry_Blog_Layouts_Data::filter_render(); ?>
-	<div class="masonry-wpapper">
+	<div class="masonry-wrapper">
 	<?php
 
 		while ( have_posts() ) : the_post();

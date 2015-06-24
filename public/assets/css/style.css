@@ -24,7 +24,7 @@
   width: 100%;
   position: relative;
 }
-.masonry-layout .masonry-wpapper {
+.masonry-layout .masonry-wrapper {
   column-count: 3;
   -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -42,7 +42,7 @@
   padding: 20px 0;
   margin: 20px 0;
 }
-.timeline-layout .timeline-wpapper {
+.timeline-layout .timeline-wrapper {
   position: relative;
 }
 .timeline-layout section.timeline-group {
@@ -58,11 +58,11 @@
   float: left;
   clear: left;
 }
-.timeline-layout article.timeline-layout-item.odd span.marker {
+.timeline-layout article.timeline-layout-item.odd .marker {
   left: 50%;
   margin-left: -5px;
 }
-.timeline-layout article.timeline-layout-item.odd span.arrow {
+.timeline-layout article.timeline-layout-item.odd .arrow {
   left: 50%;
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent #ebeaea;
@@ -71,18 +71,18 @@
   float: right;
   clear: right;
 }
-.timeline-layout article.timeline-layout-item.even span.marker {
+.timeline-layout article.timeline-layout-item.even .marker {
   right: 50%;
   margin-right: -5px;
   margin-top: 20px;
 }
-.timeline-layout article.timeline-layout-item.even span.arrow {
+.timeline-layout article.timeline-layout-item.even .arrow {
   right: 50%;
   border-width: 10px 10px 10px 0;
   border-color: transparent #ebeaea transparent transparent;
   margin-top: 15px;
 }
-.timeline-layout article.timeline-layout-item span.marker {
+.timeline-layout article.timeline-layout-item .marker {
   width: 10px;
   height: 10px;
   position: absolute;
@@ -90,7 +90,10 @@
   display: block;
   border-radius: 10px;
 }
-.timeline-layout article.timeline-layout-item span.arrow {
+.timeline-layout article.timeline-layout-item .marker span {
+  white-space: nowrap;
+}
+.timeline-layout article.timeline-layout-item .arrow {
   width: 0;
   height: 0;
   border-style: solid;

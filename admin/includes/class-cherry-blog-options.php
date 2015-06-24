@@ -159,6 +159,17 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 					'min_value'		=> 10,
 					'value'			=> 45,
 				),
+				'blog-layout-use-timeline-breakpoint' => array(
+					'type'			=> 'switcher',
+					'title'			=> __( 'Enable timeline breakpoints', 'cherry-blog' ),
+					'label'			=> '',
+					'description'	=> '',
+					'hint'			=> array(
+						'type'		=> 'text',
+						'content'	=> __( 'Enable/disable timeline breakpoints', 'cherry-blog' )
+					),
+					'value'			=> 'true',
+				),
 				'blog-layout-timeline-breakpoint' => array(
 					'type'			=> 'select',
 					'title'			=> __( 'Timeline breakpoint', 'cherry-blog' ),
@@ -179,6 +190,28 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 				'blog-layout-timeline-breakpoint-date-format' => array(
 					'type'			=> 'text',
 					'title'			=> __('Timeline breakpoint date format', 'cherry'),
+					'label'			=> '',
+					'description'	=> 'Specify the date format.',
+					'hint'			=>  array(
+						'type'		=> 'text',
+						'content'	=> __('More info <a href="https://codex.wordpress.org/Formatting_Date_and_Time">here</a> ', 'cherry'),
+					),
+					'value'			=> 'F j, Y',
+				),
+				'blog-layout-show-marker-date' => array(
+					'type'			=> 'switcher',
+					'title'			=> __( "Enable marker's date label", 'cherry-blog' ),
+					'label'			=> '',
+					'description'	=> '',
+					'hint'			=> array(
+						'type'		=> 'text',
+						'content'	=> __( "Enable/disable marker's date label", 'cherry-blog' )
+					),
+					'value'			=> 'false',
+				),
+				'blog-layout-timeline-marker-date-format' => array(
+					'type'			=> 'text',
+					'title'			=> __('Timeline marker date format', 'cherry'),
 					'label'			=> '',
 					'description'	=> 'Specify the date format.',
 					'hint'			=>  array(

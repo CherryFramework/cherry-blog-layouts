@@ -25,7 +25,7 @@
 .masonry-layout{
 	width: 100%;
 	position: relative;
-		.masonry-wpapper{
+		.masonry-wrapper{
 			column-count: 3;
 			-webkit-column-count: 3;
 			-moz-column-count: 3;
@@ -42,7 +42,7 @@
 	position: relative;
 	padding: 20px 0;
 	margin: 20px 0;
-	.timeline-wpapper{
+	.timeline-wrapper{
 		position: relative;
 	}
 	section.timeline-group{
@@ -56,11 +56,11 @@
 			&.odd{
 				float: left;
 				clear: left;
-					span.marker{
+					.marker{
 						left: 50%;
 						margin-left: -5px;
 					}
-					span.arrow{
+					.arrow{
 						left: 50%;
 						border-width: 10px 0 10px 10px;
 						border-color: transparent transparent transparent #ebeaea;
@@ -69,27 +69,30 @@
 			&.even{
 				float: right;
 				clear: right;
-					span.marker{
+					.marker{
 						right: 50%;
 						margin-right: -5px;
 						margin-top: 20px;
 					}
-					span.arrow{
+					.arrow{
 						right: 50%;
 						border-width: 10px 10px 10px 0;
 						border-color: transparent #ebeaea transparent transparent;
 						margin-top: 15px;
 					}
 			}
-			span.marker{
+			.marker{
 				width: 10px;
 				height: 10px;
 				position: absolute;
 				background-color: #ebeaea;
 				display: block;
 				border-radius: 10px;
+					span{
+						white-space: nowrap;
+					}
 			}
-			span.arrow{
+			.arrow{
 				width: 0;
 				height: 0;
 				border-style: solid;
