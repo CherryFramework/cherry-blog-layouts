@@ -43,19 +43,37 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 				$classes = array( $classes );
 			}
 
-			$columns = Cherry_Blog_Layouts::get_option( 'blog-layout-columns', 3 );
-			$columns = absint( $columns );
-
-			if ( 0 === $columns ) {
-				$columns = 1;
+			$grid_columns = Cherry_Blog_Layouts::get_option( 'blog-layout-grid-column', 'grid-4' );
+			switch ( $grid_columns ) {
+				case 'grid-2':
+					$columns = 2;
+					$classes[] = 'col-lg-' . 6;
+					$classes[] = 'col-md-' . 6;
+					$classes[] = 'col-sm-' . 6;
+					$classes[] = 'col-xs-' . 12;
+					break;
+				case 'grid-3':
+					$columns = 3;
+					$classes[] = 'col-lg-' . 4;
+					$classes[] = 'col-md-' . 4;
+					$classes[] = 'col-sm-' . 6;
+					$classes[] = 'col-xs-' . 12;
+					break;
+				case 'grid-4':
+					$columns = 4;
+					$classes[] = 'col-lg-' . 3;
+					$classes[] = 'col-md-' . 3;
+					$classes[] = 'col-sm-' . 6;
+					$classes[] = 'col-xs-' . 12;
+					break;
+				case 'grid-6':
+					$columns = 6;
+					$classes[] = 'col-lg-' . 2;
+					$classes[] = 'col-md-' . 3;
+					$classes[] = 'col-sm-' . 6;
+					$classes[] = 'col-xs-' . 12;
+					break;
 			}
-
-			$md_class = floor( 12 / $columns );
-			$xs_class = floor( $md_class / 2 );
-
-			$classes[] = 'col-md-' . $md_class;
-			$classes[] = 'col-sm-' . $md_class;
-			$classes[] = 'col-xs-' . $xs_class;
 
 			$class = implode( ' ', array_filter( $classes ) );
 
@@ -79,6 +97,50 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 			}
 
 			return $class;
+		}
+
+		/**
+		 * Get additional wrapper attrs
+		 *
+		 * @since 1.0.0
+		 *
+		 * @return string $attrs result inline attrs string
+		 */
+		public static function wrapper_attrs(  ) {
+			$columns  = Cherry_Blog_Layouts::get_option( 'blog-layout-columns', 3 );
+			$timeline_item_width  = Cherry_Blog_Layouts::get_option( 'blog-layout-timeline-item-width', 45 );
+			$columns_gutter = Cherry_Blog_Layouts::get_option( 'blog-layout-columns-gutter', 10 );
+			$layout_type = Cherry_Blog_Layouts::get_option( 'blog-layout-type', 'masonry' );
+			$grid_columns = Cherry_Blog_Layouts::get_option( 'blog-layout-grid-column', 'grid-4' );
+
+			$attrs = '';
+			switch ( $layout_type ) {
+				case 'grid':
+					switch ( $grid_columns ) {
+						case 'grid-2':
+							$columns = 2;
+							break;
+						case 'grid-3':
+							$columns = 3;
+							break;
+						case 'grid-4':
+							$columns = 4;
+							break;
+						case 'grid-6':
+							$columns = 6;
+							break;
+					}
+					$attrs .= 'data-columns="' . $columns . '"';
+					break;
+				case 'masonry':
+					$attrs .= 'data-columns="' . $columns . '"';
+					$attrs .= 'data-gutter="' . $columns_gutter . '"';
+					break;
+				case 'timeline':
+					$attrs .= 'data-timeline-item-width="' . $timeline_item_width . '"';
+					break;
+			}
+			return $attrs;
 		}
 
 		/**
