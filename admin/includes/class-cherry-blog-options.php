@@ -40,57 +40,57 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 			$layout_options = array(
 				'blog-layout-enabled' => array(
 					'type'			=> 'switcher',
-					'title'			=> __( 'Enable custom blog layout', 'cherry-blog' ),
+					'title'			=> __( 'Enable custom blog layout', 'cherry-blog-layouts' ),
 					'label'			=> '',
 					'description'	=> '',
 					'hint'			=> array(
 						'type'    => 'text',
-						'content' => __( 'Enable/disable custom blog layout', 'cherry-blog' )
+						'content' => __( 'Enable/disable custom blog layout', 'cherry-blog-layouts' )
 					),
 					'value'			=> 'false',
 				),
 				'blog-layout-type' => array(
 					'type'			=> 'select',
-					'title'			=> __( 'Filter type', 'cherry-blog' ),
+					'title'			=> __( 'Filter type', 'cherry-blog-layouts' ),
 					'label'			=> '',
 					'description'	=> '',
 					'hint'			=> array(
 						'type'		=> 'text',
-						'content' => __( 'Select if you want to folter posts by tag or by category', 'cherry-blog' )
+						'content' => __( 'Select if you want to folter posts by tag or by category', 'cherry-blog-layouts' )
 					),
 					'value'			=> 'grid',
 					'class'			=> 'width-full',
 					'options'		=> array(
-						'grid'     => __( 'Grid', 'cherry-blog' ),
-						'masonry'  => __( 'Masonry', 'cherry-blog' ),
-						'timeline' => __( 'Timeline', 'cherry-blog' )
+						'grid'     => __( 'Grid', 'cherry-blog-layouts' ),
+						'masonry'  => __( 'Masonry', 'cherry-blog-layouts' ),
+						'timeline' => __( 'Timeline', 'cherry-blog-layouts' )
 					)
 				),
 				'blog-layout-filter' => array(
 					'type'			=> 'select',
-					'title'			=> __( 'Custom blog layout type', 'cherry-blog' ),
+					'title'			=> __( 'Custom blog layout type', 'cherry-blog-layouts' ),
 					'label'			=> '',
 					'description'	=> '',
 					'hint'			=> array(
 						'type'		=> 'text',
-						'content'	=> __( 'Select custom blog layout type', 'cherry-blog' )
+						'content'	=> __( 'Select custom blog layout type', 'cherry-blog-layouts' )
 					),
 					'value'			=> 'categories',
 					'class'			=> 'width-full',
 					'options'		=> array(
-						'none'			=> __( 'None', 'cherry-blog' ),
-						'categories'	=> __( 'Categories', 'cherry-blog' ),
-						'tags'			=> __( 'Tags', 'cherry-blog' ),
+						'none'			=> __( 'None', 'cherry-blog-layouts' ),
+						'categories'	=> __( 'Categories', 'cherry-blog-layouts' ),
+						'tags'			=> __( 'Tags', 'cherry-blog-layouts' ),
 					)
 				),
 				'blog-layout-pages' => array(
 					'type'			=> 'checkbox',
-					'title'			=> __( 'Use on pages', 'cherry-blog' ),
+					'title'			=> __( 'Use on pages', 'cherry-blog-layouts' ),
 					'label'			=> '',
 					'description'	=> '',
 					'hint'			=>  array(
 						'type'		=> 'text',
-						'content'	=> __('Please specify pages that will use custom blog layout.', 'cherry-blog'),
+						'content'	=> __('Please specify pages that will use custom blog layout.', 'cherry-blog-layouts'),
 					),
 					'class'			=> '',
 					'value'			=> array(
@@ -102,12 +102,12 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 						'is_date'
 					),
 					'options'		=> array(
-						'is_home'              => __( 'Blog page', 'cherry-blog' ),
-						'is_post_type_archive' => __( 'Custom Post type archive', 'cherry-blog' ),
-						'is_category'          => __( 'Blog category archive', 'cherry-blog' ),
-						'is_tag'               => __( 'Blog tags archive', 'cherry-blog' ),
-						'is_author'            => __( 'Author archive', 'cherry-blog' ),
-						'is_date'              => __( 'Date archive', 'cherry-blog' )
+						'is_home'              => __( 'Blog page', 'cherry-blog-layouts' ),
+						'is_post_type_archive' => __( 'Custom Post type archive', 'cherry-blog-layouts' ),
+						'is_category'          => __( 'Blog category archive', 'cherry-blog-layouts' ),
+						'is_tag'               => __( 'Blog tags archive', 'cherry-blog-layouts' ),
+						'is_author'            => __( 'Author archive', 'cherry-blog-layouts' ),
+						'is_date'              => __( 'Date archive', 'cherry-blog-layouts' )
 					)
 				),
 				'blog-layout-grid-column' => array(
@@ -161,30 +161,30 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 				),
 				'blog-layout-use-timeline-breakpoint' => array(
 					'type'			=> 'switcher',
-					'title'			=> __( 'Enable timeline breakpoints', 'cherry-blog' ),
+					'title'			=> __( 'Enable timeline breakpoints', 'cherry-blog-layouts' ),
 					'label'			=> '',
 					'description'	=> '',
 					'hint'			=> array(
 						'type'		=> 'text',
-						'content'	=> __( 'Enable/disable timeline breakpoints', 'cherry-blog' )
+						'content'	=> __( 'Enable/disable timeline breakpoints', 'cherry-blog-layouts' )
 					),
 					'value'			=> 'true',
 				),
 				'blog-layout-timeline-breakpoint' => array(
 					'type'			=> 'select',
-					'title'			=> __( 'Timeline breakpoint', 'cherry-blog' ),
+					'title'			=> __( 'Timeline breakpoint', 'cherry-blog-layouts' ),
 					'label'			=> '',
 					'description'	=> '',
 					'hint'			=> array(
 						'type'		=> 'text',
-						'content'	=> __( 'Select timeline breakpoint type', 'cherry-blog' )
+						'content'	=> __( 'Select timeline breakpoint type', 'cherry-blog-layouts' )
 					),
 					'value'			=> 'grid',
 					'class'			=> 'width-full',
 					'options'		=> array(
-						'year'		=> __( 'Year', 'cherry-blog' ),
-						'month'		=> __( 'Month', 'cherry-blog' ),
-						'day'		=> __( 'Day', 'cherry-blog' )
+						'year'		=> __( 'Year', 'cherry-blog-layouts' ),
+						'month'		=> __( 'Month', 'cherry-blog-layouts' ),
+						'day'		=> __( 'Day', 'cherry-blog-layouts' )
 					)
 				),
 				'blog-layout-timeline-breakpoint-date-format' => array(
@@ -200,12 +200,12 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 				),
 				'blog-layout-show-marker-date' => array(
 					'type'			=> 'switcher',
-					'title'			=> __( "Enable marker's date label", 'cherry-blog' ),
+					'title'			=> __( "Enable marker's date label", 'cherry-blog-layouts' ),
 					'label'			=> '',
 					'description'	=> '',
 					'hint'			=> array(
 						'type'		=> 'text',
-						'content'	=> __( "Enable/disable marker's date label", 'cherry-blog' )
+						'content'	=> __( "Enable/disable marker's date label", 'cherry-blog-layouts' )
 					),
 					'value'			=> 'false',
 				),
@@ -243,7 +243,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 				),
 				'blog-layout-sidebar-position' => array(
 					'type'        => 'radio',
-					'title'       => __( 'Custom Blog sidebars', 'cherry-blog' ),
+					'title'       => __( 'Custom Blog sidebars', 'cherry-blog-layouts' ),
 					'description' => '',
 					'hint'        => array(
 						'type'    => 'text',
@@ -287,7 +287,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 			$menu_options = apply_filters( 'cherry_blog_layout_options', $layout_options );
 
 			$sections['blog-layout-options-section'] = array(
-				'name'			=> __( 'Blog layout', 'cherry-blog' ),
+				'name'			=> __( 'Blog layout', 'cherry-blog-layouts' ),
 				'icon'			=> 'dashicons dashicons-arrow-right',
 				'parent'		=> 'blog-section',
 				'priority'		=> 41,

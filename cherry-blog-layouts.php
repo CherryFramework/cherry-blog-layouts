@@ -7,7 +7,7 @@
  * Version:     1.0.0
  * Author:      Cherry Team
  * Author URI:  http://www.cherryframework.com/
- * Text Domain: cherry-blog
+ * Text Domain: cherry-blog-layouts
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path: /languages
@@ -148,6 +148,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 			require CHERRY_BLOG_DIR . 'public/includes/class-cherry-blog-template-loader.php';
 			require CHERRY_BLOG_DIR . 'public/includes/class-cherry-blog-data.php';
 			require CHERRY_BLOG_DIR . 'public/includes/class-cherry-blog-tools.php';
+			require CHERRY_BLOG_DIR . 'public/includes/class-cherry-blog-shortcode.php';
 		}
 
 		/**
@@ -204,4 +205,8 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 	}
 
 	Cherry_Blog_Layouts::get_instance();
+}
+
+function breakpoint_render( $date_format = '' ){
+	return '<div class="timeline-breakpiont">' . $date_format . '</div>';
 }

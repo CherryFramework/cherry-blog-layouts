@@ -43,30 +43,13 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 
 		function __construct() {
 
-			// Add a filter to the page attributes metabox to inject our template into the page template cache.
-			add_filter( 'page_attributes_dropdown_pages_args', array( $this, 'register_templates' ) );
-
-			// Add a filter to the save post in order to inject out template into the page cache.
-			add_filter( 'wp_insert_post_data', array( $this, 'register_templates' ) );
-
 			// Rewrite default blog templates
 			add_filter( 'template_include', array( $this, 'view_template' ), 1 );
-
-			// Add your templates to this array.
-			$this->templates = array(
-				'layout-grid'     => __( 'Blog Grid Layout', 'cherry-blog' ),
-				'layout-masonry'  => __( 'Blog Masonry Layout', 'cherry-blog' ),
-				'layout-timeline' => __( 'Blog Layout Layout', 'cherry-blog' ),
-			);
-
-			// Adding support for theme templates to be merged and shown in dropdown.
-			$templates = wp_get_theme()->get_page_templates();
-			$templates = array_merge( $templates, $this->templates );
 
 		}
 
 		/**
-		 * Load custom templates by name/slug
+		 * Return custom template path by name/slug
 		 *
 		 * Searching priority:
 		 * yourtheme/blog-layouts/$name-$slug.php
@@ -83,7 +66,7 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 			$template = false;
 
 			if ( $name ) {
-				$template = locate_template( array( "{$slug}-{$name}.php" ) );
+				$template = locate_template( array( "blog-layouts/{$slug}-{$name}.php" ) );
 			}
 
 			if ( ! $template && $name && file_exists( CHERRY_BLOG_DIR . "templates/{$slug}-{$name}.php" ) ) {
@@ -91,7 +74,7 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 			}
 
 			if ( ! $template ) {
-				$template = locate_template( array( "{$slug}.php" ) );
+				$template = locate_template( array( "blog-layouts/{$slug}.php" ) );
 			}
 
 			if ( ! $template && file_exists( CHERRY_BLOG_DIR . "templates/{$slug}.php" ) ) {
@@ -170,40 +153,6 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 		}
 
 		/**
-		 * Adds our template to the pages cache in order to trick WordPress
-		 * into thinking the template file exists where it doens't really exist.
-		 *
-		 * @since  1.0.0
-		 *
-		 * @param  array $atts The attributes for the page attributes dropdown.
-		 * @return array $atts The attributes for the page attributes dropdown.
-		 */
-		public function register_templates( $atts ) {
-
-			// Create the key used for the themes cache.
-			$cache_key = 'page_templates-' . md5( get_theme_root() . '/' . get_stylesheet() );
-
-			// Retrieve the cache list. If it doesn't exist, or it's empty prepare an array.
-			$templates = wp_cache_get( $cache_key, 'themes' );
-
-			if ( empty( $templates ) ) {
-				$templates = array();
-			}
-
-			// Since we've updated the cache, we need to delete the old cache.
-			wp_cache_delete( $cache_key , 'themes');
-
-			// Now add our template to the list of templates by merging our templates
-			// with the existing templates array from the cache.
-			$templates = array_merge( $templates, $this->templates );
-
-			// Add the modified cache to allow WordPress to pick it up for listing available templates.
-			wp_cache_add( $cache_key, $templates, 'themes', 1800 );
-
-			return $atts;
-		}
-
-		/**
 		 * Include specific layout template file
 		 *
 		 * @since  1.0.0
@@ -213,14 +162,9 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 
 			// Check, if is posts listing page
 			$blog_template = $this->get_blog_template();
+
 			if ( false !== $blog_template ) {
 				return $blog_template;
-			}
-
-			// check if is custom page template
-			$page_template = $this->get_page_template();
-			if ( false !== $page_template ) {
-				return $page_template;
 			}
 
 			return $template;
@@ -260,37 +204,6 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 
 			if ( true === $rewrite_template ) {
 				return $this->get_template( 'layout', $layout_type );
-			}
-
-			return false;
-		}
-
-		/**
-		 * Check if we need rewrite template for the page and get it
-		 *
-		 * @since  1.0.0
-		 *
-		 * @return bool|string  boolean false if no need to rewrite or template path
-		 */
-		public function get_page_template() {
-
-			global $post;
-
-			if ( ! is_page( $post ) ) {
-				return false;
-			}
-
-			$page_template_meta = get_post_meta( $post->ID, '_wp_page_template', true );
-
-			if ( ! isset( $this->templates[ $page_template_meta ] ) ) {
-				return false;
-			}
-
-			$template_pieces = explode( '-', $page_template_meta );
-
-			if ( is_array( $template_pieces ) && 2 == count( $template_pieces ) ) {
-				Cherry_Blog_Layouts::$is_custom_page = true;
-				return $this->get_template( $template_pieces[0], $template_pieces[1] );
 			}
 
 			return false;
