@@ -10,7 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 //Cherry_Blog_Template_Loader::prepare_query();
 ?>
 <div class="<?php echo apply_filters( 'cherry_blog_layout_wrapper_class', 'masonry-layout', 'masonry' ); ?>"<?php echo Cherry_Blog_Layouts_Tools::wrapper_attrs() ?>>
-	<?php echo Cherry_Blog_Layouts_Data::filter_render(); ?>
+	<?php
+	$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options();
+	echo Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ); ?>
 	<div class="masonry-wrapper">
 		<?php
 			while ( have_posts() ) : the_post();

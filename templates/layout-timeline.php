@@ -7,11 +7,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die();
 }?>
 <div class="<?php echo apply_filters( 'cherry_blog_layout_wrapper_class', 'timeline-layout', 'timeline' ); ?>"<?php echo Cherry_Blog_Layouts_Tools::wrapper_attrs() ?>>
-	<?php echo Cherry_Blog_Layouts_Data::filter_render(); ?>
+	<?php
+	$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options();
+	echo Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ); ?>
 	<div class="timeline-wpapper">
 		<span class="timeline-line"></span>
 		<?php
-			$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options();
+
 			$post_counter = 0;
 			$break_point_date = '';
 

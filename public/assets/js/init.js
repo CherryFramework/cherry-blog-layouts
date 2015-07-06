@@ -81,51 +81,64 @@
 			var
 				self = this
 			,	$masonry_layout = $('.masonry-layout')
-			,	$masonry_layout_wrapper = $('.masonry-layout .masonry-wpapper')
-			,	$masonry_layout_list = $('.masonry-layout .masonry-layout-item')
-			,	masonry_columns = parseInt( $masonry_layout.data('columns') )
-			,	masonry_gutter = parseInt( $masonry_layout.data('gutter') )
 			;
 
-			$masonry_layout_wrapper.css({
-				'column-count': masonry_columns,
-				'-webkit-column-count': masonry_columns,
-				'-moz-column-count': masonry_columns,
-				'column-gap': masonry_gutter,
-				'-webkit-column-gap': masonry_gutter,
-				'-moz-column-gap': masonry_gutter,
-			});
-			$masonry_layout_list.css({
-				'margin-bottom' : masonry_gutter,
-			});
+			$masonry_layout.each(function(){
+				var
+					$this = $(this)
+				,	$masonry_layout_wrapper = $('.masonry-wpapper', $this)
+				,	$masonry_layout_list = $('.masonry-layout-item', $this)
+				,	masonry_columns = parseInt( $this.data('columns') )
+				,	masonry_gutter = parseInt( $this.data('gutter') )
+				;
 
-			CHERRY_API.variable.$window.on('resize.masonry_layout_resize', masonry_layout_resize );
-			function masonry_layout_resize(){
-				var new_column = self.resize_column_layout( masonry_columns );
 				$masonry_layout_wrapper.css({
-					'column-count': new_column,
-					'-webkit-column-count': new_column,
-					'-moz-column-count': new_column,
-				})
-			}
+					'column-count': masonry_columns,
+					'-webkit-column-count': masonry_columns,
+					'-moz-column-count': masonry_columns,
+					'column-gap': masonry_gutter,
+					'-webkit-column-gap': masonry_gutter,
+					'-moz-column-gap': masonry_gutter,
+				});
+				$masonry_layout_list.css({
+					'margin-bottom' : masonry_gutter,
+				});
+
+				CHERRY_API.variable.$window.on('resize.masonry_layout_resize', masonry_layout_resize );
+				function masonry_layout_resize( target ){
+					var new_column = self.resize_column_layout( masonry_columns );
+					$masonry_layout_wrapper.css({
+						'column-count': new_column,
+						'-webkit-column-count': new_column,
+						'-moz-column-count': new_column,
+					})
+				}
+			})
 		},
 		timeline_init: function(){
 			var
 				self = this
 			,	$timeline_layout_wrapper = $('.timeline-layout')
-			,	$timeline_layout_list = $('.timeline-layout .timeline-layout-item')
-			,	$timeline_item_width = parseInt( $timeline_layout_wrapper.data('timeline-item-width') )
 			;
 
-			$timeline_layout_list.css({
-				'width' : $timeline_item_width + '%',
-			});
-			$timeline_layout_list.each(function(){
-				if( $(this).hasClass('odd') ){
-					$('.arrow', this).css({ 'left': $timeline_item_width + '%' });
-				}else{
-					$('.arrow', this).css({ 'right': $timeline_item_width + '%' });
-				}
+			$timeline_layout_wrapper.each(function(){
+				var
+					$this = $(this)
+				,	$timeline_layout_list = $('.timeline-layout-item', $this)
+				,	$timeline_item_width = parseInt( $this.data('timeline-item-width') )
+				;
+
+				$timeline_layout_list.css({
+					'width' : $timeline_item_width + '%',
+				});
+
+				$timeline_layout_list.each(function(){
+					if( $(this).hasClass('odd') ){
+						$('.arrow', this).css({ 'left': $timeline_item_width + '%' });
+					}else{
+						$('.arrow', this).css({ 'right': $timeline_item_width + '%' });
+					}
+				})
 			})
 		},
 		resize_layout: function (){

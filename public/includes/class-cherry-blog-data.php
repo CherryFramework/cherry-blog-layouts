@@ -63,22 +63,10 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 			}
 		}
 
-		public static function filter_render( $custom_class = '' ) {
+		public static function filter_render( $filter_type = 'categories', $custom_class = '' ) {
 			$html = '';
-			$parsed_options = self::get_parsed_options();
 
-			switch ( $parsed_options['layout_type'] ) {
-				case 'grid':
-					$filter_class = 'grid-layout-filter';
-					break;
-				case 'masonry':
-					$filter_class = 'masonry-layout-filter';
-					break;
-				case 'timeline':
-					$filter_class = 'timeline-layout-filter';
-					break;
-			}
-			switch ( $parsed_options['filter_type'] ) {
+			switch ( $filter_type ) {
 				case 'none':
 					$terms = null;
 					break;
@@ -90,7 +78,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 					break;
 			}
 			if( isset( $terms ) ){
-				$html .= '<ul class="taxonomy-filter '. $filter_class . ' ' . $custom_class . '">';
+				$html .= '<ul class="taxonomy-filter ' . $custom_class . '">';
 					if( get_option( 'show_on_front' ) == 'page' ){
 						$all_terms = get_permalink( get_option('page_for_posts') );
 					}else{
@@ -98,7 +86,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 					}
 					$html .= '<li><a href="' . $all_terms . '/">' . apply_filters( 'cherry_blog_layout_all_terms_text', __('All', 'cherry-blog') ) .'</a></li>';
 						foreach( $terms as $term ){
-							switch ( $parsed_options['filter_type'] ) {
+							switch ( $filter_type ) {
 								case 'categories':
 									$term_permalink = get_category_link( $term->term_taxonomy_id );
 									break;
