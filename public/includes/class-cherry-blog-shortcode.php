@@ -283,7 +283,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 				'orderby'							=> 'date',
 				'order'								=> 'DESC',
 				'category'							=> '',
-				'paged'								=> 0,
+				'paged'								=> 'yes',
 				'layout_type'						=> 'masonry',
 				'template_type'						=> '',
 				'filter_type'						=> 'categories',
@@ -309,6 +309,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 
 			$atts['use_timeline_breakpoint'] = ( bool ) ( $atts['use_timeline_breakpoint'] === 'yes' ) ? 'true' : 'false';
 			$atts['show_marker_date'] = ( bool ) ( $atts['show_marker_date'] === 'yes' ) ? 'true' : 'false';
+			$atts['paged'] = ( bool ) ( $atts['paged'] === 'yes' ) ? 'true' : 'false';
 
 			$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options( $atts );
 
@@ -346,6 +347,8 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 
 			$posts_query = new WP_Query( $query_args );
 
+			$pagination_html = ( 'true' === $parsed_options['paged'] ) ? Cherry_Blog_Layouts_Data::pagination_render( $posts_query ) : '';
+
 			if ( ! $posts_query->have_posts() ) {
 				return __( 'No posts found', 'cherry-blog-layouts' );
 			}
@@ -382,17 +385,17 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 							break;
 					}
 					$attrs = 'data-columns="' . $columns . '"';
-					var_dump(the_posts_pagination());
-					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="grid-wpapper">%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), the_posts_pagination() );
+
+					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="grid-wpapper">%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html);
 					break;
 				case 'masonry':
 					$attrs = 'data-columns="' . $parsed_options['columns'] . '"';
 					$attrs .= 'data-gutter="' . $parsed_options['columns_gutter'] . '"';
-					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="masonry-wpapper">%1$s<div class="clear"></div></div></div>', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ) );
+					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="masonry-wpapper">%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html );
 					break;
 				case 'timeline':
 					$attrs = 'data-timeline-item-width="' . $parsed_options['timeline_item_width'] . '"';
-					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="timeline-wpapper"><span class="timeline-line"></span>%1$s<div class="clear"></div></div></div>', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ) );
+					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="timeline-wpapper"><span class="timeline-line"></span>%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html );
 					break;
 			}
 		}

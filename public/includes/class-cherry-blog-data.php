@@ -17,6 +17,14 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 
 	class Cherry_Blog_Layouts_Data {
 
+		/**
+		 * Holder for the main query object, while team query processing
+		 *
+		 * @since 1.0.0
+		 * @var   object
+		 */
+		private $temp_query = null;
+
 		public static $default_options = array();
 
 		/**
@@ -51,7 +59,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 					'orderby'							=> 'date',
 					'order'								=> 'DESC',
 					'category'							=> '',
-					'paged'								=> 0,
+					'paged'								=> 'true',
 					'template_type'						=> '',
 					'class'								=> '',
 				);
@@ -102,6 +110,20 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 			return $html;
 		}
 
+		public static function pagination_render( $posts_query = '' ){
+			global $wp_query;
+
+			$temp_query = $wp_query;
+			$wp_query = NULL;
+			$wp_query = $posts_query;
+
+			$html = get_the_posts_pagination();
+
+			$wp_query = NULL;
+			$wp_query = $temp_query;
+
+			return $html;
+		}
 		/**
 		 * Returns the instance.
 		 *

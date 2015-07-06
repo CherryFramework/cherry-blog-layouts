@@ -82,6 +82,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 
 		}
 
+
 		/**
 		 * Get additional wrapper classes
 		 *
