@@ -151,6 +151,62 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 							'name'    => __( 'Layout', 'cherry-blog-layouts' ),
 							'desc'    => __( 'Select output layout format', 'cherry-blog-layouts' )
 						),
+						'filter_type' => array(
+							'type' => 'select',
+							'values' => array(
+								'none'        => __( 'None', 'cherry-blog-layouts' ),
+								'categories'  => __( 'Categories', 'cherry-blog-layouts' ),
+								'tags'        => __( 'Tags', 'cherry-blog-layouts' )
+							),
+							'default' => 'categories',
+							'name'    => __( 'Filter type', 'cherry-blog-layouts' ),
+							'desc'    => __( 'Select blog filter type', 'cherry-blog-layouts' )
+						),
+						'grid_column' => array(
+							'type' => 'select',
+							'values' => array(
+								'grid-2'        => __( 'Grid 2', 'cherry-blog-layouts' ),
+								'grid-3'        => __( 'Grid 3', 'cherry-blog-layouts' ),
+								'grid-4'        => __( 'Grid 4', 'cherry-blog-layouts' ),
+								'grid-6'        => __( 'Grid 6', 'cherry-blog-layouts' ),
+							),
+							'default' => 'grid-4',
+							'name'    => __( 'Grid columns', 'cherry-blog-layouts' ),
+							'desc'    => __( 'Select grid layout pattern for pages with custom blog layout', 'cherry-blog-layouts' )
+						),
+						'columns' => array(
+							'type'    => 'slider',
+							'min'     => 2,
+							'max'     => 10,
+							'step'    => 1,
+							'default' => 3,
+							'name'    => __( 'Masonry columns number', 'cherry-blog-layouts' ),
+							'desc'    => __( 'Specify custom masonry layout columns number', 'cherry-blog-layouts' )
+						),
+						'columns_gutter' => array(
+							'type'    => 'slider',
+							'min'     => 0,
+							'max'     => 100,
+							'step'    => 1,
+							'default' => 10,
+							'name'    => __( 'Masonry columns gutter', 'cherry-blog-layouts' ),
+							'desc'    => __( 'Specify custom masonry layout columns gutter(px)', 'cherry-blog-layouts' )
+						),
+						'timeline_item_width' => array(
+							'type'    => 'slider',
+							'min'     => 0,
+							'max'     => 50,
+							'step'    => 1,
+							'default' => 48,
+							'name'    => __( 'Timeline item width', 'cherry-blog-layouts' ),
+							'desc'    => __( 'Specify custom item width for Timeline blog layout(%)', 'cherry-blog-layouts' )
+						),
+						'use_timeline_breakpoint' => array(
+							'type'    => 'bool',
+							'default' => 'yes',
+							'name'    => __( 'Enable timeline breakpoints', 'cherry-blog-layouts' ),
+							'desc'    => __( 'Enable/disable timeline breakpoints', 'cherry-blog-layouts' ),
+						),
 						'class'   => array(
 							'default' => '',
 							'name'    => __( 'Class', 'cherry-blog-layouts' ),
@@ -196,14 +252,20 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 
 			// Set up the default arguments.
 			$defaults = array(
-				'posts_per_page'	=> 3,
-				'orderby'			=> 'date',
-				'order'				=> 'DESC',
-				'category'			=> '',
-				'paged'				=> 0,
-				'layout_type'		=> 'masonry',
-				'template_type'		=> '',
-				'class'				=> '',
+				'posts_per_page'			=> 3,
+				'orderby'					=> 'date',
+				'order'						=> 'DESC',
+				'category'					=> '',
+				'paged'						=> 0,
+				'layout_type'				=> 'masonry',
+				'template_type'				=> '',
+				'filter_type'				=> 'categories',
+				'grid_column'				=> 'grid-4',
+				'columns'					=> 3,
+				'columns_gutter'			=> 10,
+				'timeline_item_width'		=> 48,
+				'use_timeline_breakpoint'	=> 'yes',
+				'class'						=> '',
 			);
 
 			/**
@@ -213,6 +275,8 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 			 */
 
 			$atts = shortcode_atts( $defaults, $atts, $this->name );
+
+			$atts['use_timeline_breakpoint'] = ( bool ) ( $atts['use_timeline_breakpoint'] === 'yes' ) ? true : false;
 
 			$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options( $atts );
 
@@ -321,9 +385,9 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 	Cherry_Blog_Layout_Shortcode::get_instance();
 }
 
-add_filter('cherry_blog_layout_shortcode_settings', 'blog_layout_shortcode_settings');
+/*add_filter('cherry_blog_layout_shortcode_settings', 'blog_layout_shortcode_settings');
 
-/*function blog_layout_shortcode_settings( $settings ){
+function blog_layout_shortcode_settings( $settings ){
 	$settings['atts']['template_type'] = array(
 		'type'     => 'select',
 		'values'   => array(

@@ -68,12 +68,12 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 				),
 				'blog-layout-filter' => array(
 					'type'			=> 'select',
-					'title'			=> __( 'Custom blog layout type', 'cherry-blog-layouts' ),
+					'title'			=> __( 'Custom blog filter type', 'cherry-blog-layouts' ),
 					'label'			=> '',
 					'description'	=> '',
 					'hint'			=> array(
 						'type'		=> 'text',
-						'content'	=> __( 'Select custom blog layout type', 'cherry-blog-layouts' )
+						'content'	=> __( 'Select blog filter type', 'cherry-blog-layouts' )
 					),
 					'value'			=> 'categories',
 					'class'			=> 'width-full',
@@ -113,7 +113,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 				'blog-layout-grid-column' => array(
 					'type'			=> 'radio',
 					'title'			=> __( 'Grid columns', 'cherry' ),
-					'description'	=> __( 'Select Grid layout pattern for pages with custom blog layout.', 'cherry' ),
+					'description'	=> __( 'Select grid layout pattern for pages with custom blog layout', 'cherry' ),
 					'value'			=> 'grid-4',
 					'display_input'	=> false,
 					'options'		=> array(
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 					'description'	=> __( 'Specify custom item width for Timeline blog layout(%)', 'cherry' ),
 					'max_value'		=> 50,
 					'min_value'		=> 10,
-					'value'			=> 45,
+					'value'			=> 48,
 				),
 				'blog-layout-use-timeline-breakpoint' => array(
 					'type'			=> 'switcher',
