@@ -43,8 +43,9 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 				$classes = array( $classes );
 			}
 
-			$grid_columns = Cherry_Blog_Layouts::get_option( 'blog-layout-grid-column', 'grid-4' );
-			switch ( $grid_columns ) {
+			$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options();
+
+			switch ( $parsed_options['grid_column'] ) {
 				case 'grid-2':
 					$columns = 2;
 					$classes[] = 'col-lg-' . 6;
@@ -106,12 +107,14 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 		 *
 		 * @return string $attrs result inline attrs string
 		 */
-		public static function wrapper_attrs(  ) {
-			$columns  = Cherry_Blog_Layouts::get_option( 'blog-layout-columns', 3 );
-			$timeline_item_width  = Cherry_Blog_Layouts::get_option( 'blog-layout-timeline-item-width', 45 );
-			$columns_gutter = Cherry_Blog_Layouts::get_option( 'blog-layout-columns-gutter', 10 );
-			$layout_type = Cherry_Blog_Layouts::get_option( 'blog-layout-type', 'masonry' );
-			$grid_columns = Cherry_Blog_Layouts::get_option( 'blog-layout-grid-column', 'grid-4' );
+		public static function wrapper_attrs() {
+			$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options();
+
+			$columns = $parsed_options['columns'];
+			$timeline_item_width = $parsed_options['timeline_item_width'];
+			$columns_gutter = $parsed_options['columns_gutter'];
+			$layout_type = $parsed_options['layout_type'];
+			$grid_columns = $parsed_options['grid_column'];
 
 			$attrs = '';
 			switch ( $layout_type ) {
@@ -157,7 +160,8 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 				return $layout;
 			}
 
-			$custom_layout = Cherry_Blog_Layouts::get_option( 'blog-layout-sidebar-position', 'inherit' );
+			$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options();
+			$custom_layout = $parsed_options['sidebar_position'];
 
 			if ( ! $custom_layout || 'inherit' == $custom_layout ) {
 				return $layout;
@@ -181,7 +185,9 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 				return $grid_type;
 			}
 
-			$content_grid = Cherry_Blog_Layouts::get_option( 'blog-layout-grid-type', 'inherit' );
+			$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options();
+
+			$content_grid = $parsed_options['content_grid_type'];
 
 			if ( ! $content_grid || 'inherit' == $content_grid ) {
 				return $grid_type;

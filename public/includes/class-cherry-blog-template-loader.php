@@ -180,7 +180,8 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 		 */
 		public function get_blog_template() {
 
-			$is_enabled = Cherry_Blog_Layouts::get_option( 'blog-layout-enabled', 'false' );
+			$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options();
+			$is_enabled = $parsed_options['enabled'];
 
 			if ( 'true' !== $is_enabled ) {
 				return false;
@@ -188,7 +189,7 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 
 			$conditionals = Cherry_Blog_Layouts::conditionals();
 
-			$allowed_pages = Cherry_Blog_Layouts::get_option( 'blog-layout-pages', $conditionals );
+			$allowed_pages = $parsed_options['pages'];
 
 			$rewrite_template = false;
 
@@ -200,59 +201,13 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 				}
 			}
 
-			$layout_type = Cherry_Blog_Layouts::get_option( 'blog-layout-type', 'grid' );
+			$layout_type = $parsed_options['layout_type'];
 
 			if ( true === $rewrite_template ) {
 				return $this->get_template( 'layout', $layout_type );
 			}
 
 			return false;
-		}
-
-		/**
-		 * Prepare WP query for page templates
-		 *
-		 * @since 1.0.0
-		 */
-		public static function prepare_query() {
-
-			global $wp_query;
-
-			self::$temp_query = $wp_query;
-
-			$paged = get_query_var( 'paged' );
-
-			if ( ! $paged ) {
-				$paged = 1;
-			}
-
-			$args = array(
-				'pagename' => false,
-				'name'     => false,
-				'paged'    => $paged,
-				'posts_per_page' => Cherry_Blog_Layouts::get_option( 'blog-layout-post-per-page', 9 )
-			);
-
-			$wp_query = new WP_Query( $args );
-
-		}
-
-		/**
-		 * Restore main WP query after template processing
-		 *
-		 * @since 1.0.0
-		 */
-		public static function restore_query() {
-
-			if ( false === self::$temp_query ) {
-				return;
-			}
-
-			global $wp_query;
-			$wp_query = self::$temp_query;
-			wp_reset_postdata();
-			wp_reset_query();
-
 		}
 
 		/**

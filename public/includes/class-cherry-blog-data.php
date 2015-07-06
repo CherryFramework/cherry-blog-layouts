@@ -17,6 +17,8 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 
 	class Cherry_Blog_Layouts_Data {
 
+		public static $default_options = array();
+
 		/**
 		 * A reference to an instance of this class.
 		 *
@@ -25,17 +27,47 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 		 */
 		private static $instance = null;
 
-		function __construct() {
+		function __construct() {}
 
+		public static function get_parsed_options( $options = '' ){
+			if( empty( self::$default_options ) ){
+				self::$default_options = array(
+					'enabled'							=> Cherry_Blog_Layouts::get_option( 'blog-layout-enabled', 'false' ),
+					'layout_type'						=> Cherry_Blog_Layouts::get_option( 'blog-layout-type', 'masonry' ),
+					'filter_type'						=> Cherry_Blog_Layouts::get_option( 'blog-layout-filter', 'categories' ),
+					'pages'								=> Cherry_Blog_Layouts::get_option( 'blog-layout-pages', array('is_home', 'is_post_type_archive', 'is_category', 'is_tag', 'is_author', 'is_date') ),
+					'grid_column'						=> Cherry_Blog_Layouts::get_option( 'blog-layout-grid-column', 'grid-4' ),
+					'columns'							=> Cherry_Blog_Layouts::get_option( 'blog-layout-columns', 3 ),
+					'columns_gutter'					=> Cherry_Blog_Layouts::get_option( 'blog-layout-columns-gutter', 10 ),
+					'timeline_item_width'				=> Cherry_Blog_Layouts::get_option( 'blog-layout-timeline-item-width', 45 ),
+					'use_timeline_breakpoint'			=> Cherry_Blog_Layouts::get_option( 'blog-layout-use-timeline-breakpoint', 'true' ),
+					'timeline_breakpoint'				=> Cherry_Blog_Layouts::get_option( 'blog-layout-timeline-breakpoint', 'month' ),
+					'timeline_breakpoint_date_format'	=> Cherry_Blog_Layouts::get_option( 'blog-layout-timeline-breakpoint-date-format', 'F j, Y' ),
+					'show_marker_date'					=> Cherry_Blog_Layouts::get_option( 'blog-layout-show-marker-date', 'false' ),
+					'timeline_marker_date_format'		=> Cherry_Blog_Layouts::get_option( 'blog-layout-timeline-marker-date-format', 'F j, Y' ),
+					'content_grid_type'					=> Cherry_Blog_Layouts::get_option( 'blog-layout-grid-type', 'inherit' ),
+					'sidebar_position'					=> Cherry_Blog_Layouts::get_option( 'blog-layout-sidebar-position', 'inherit' ),
+					'posts_per_page'					=> 9,
+					'orderby'							=> 'date',
+					'order'								=> 'DESC',
+					'category'							=> '',
+					'paged'								=> 0,
+					'template_type'						=> '',
+					'class'								=> '',
+				);
+			}
+
+			$options = wp_parse_args( $options, self::$default_options );
+			if( is_array( $options ) && !empty( $options ) ){
+				return $options;
+			}
 		}
 
 		public static function filter_render( $custom_class = '' ) {
 			$html = '';
+			$parsed_options = self::get_parsed_options();
 
-			$taxonomy_type = Cherry_Blog_Layouts::get_option( 'blog-layout-filter', 'categories' );
-			$layout_type = Cherry_Blog_Layouts::get_option( 'blog-layout-type', 'masonry' );
-
-			switch ( $layout_type ) {
+			switch ( $parsed_options['layout_type'] ) {
 				case 'grid':
 					$filter_class = 'grid-layout-filter';
 					break;
@@ -46,7 +78,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 					$filter_class = 'timeline-layout-filter';
 					break;
 			}
-			switch ( $taxonomy_type ) {
+			switch ( $parsed_options['filter_type'] ) {
 				case 'none':
 					$terms = null;
 					break;
@@ -66,7 +98,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 					}
 					$html .= '<li><a href="' . $all_terms . '/">' . apply_filters( 'cherry_blog_layout_all_terms_text', __('All', 'cherry-blog') ) .'</a></li>';
 						foreach( $terms as $term ){
-							switch ( $taxonomy_type ) {
+							switch ( $parsed_options['filter_type'] ) {
 								case 'categories':
 									$term_permalink = get_category_link( $term->term_taxonomy_id );
 									break;

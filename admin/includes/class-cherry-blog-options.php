@@ -179,7 +179,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 						'type'		=> 'text',
 						'content'	=> __( 'Select timeline breakpoint type', 'cherry-blog-layouts' )
 					),
-					'value'			=> 'grid',
+					'value'			=> 'month',
 					'class'			=> 'width-full',
 					'options'		=> array(
 						'year'		=> __( 'Year', 'cherry-blog-layouts' ),
