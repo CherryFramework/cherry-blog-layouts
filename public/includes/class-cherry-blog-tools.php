@@ -37,15 +37,13 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 		 * @since  1.0.0
 		 * @param  array|string $classes passed user classes
 		 */
-		public static function item_class( $classes = array() ) {
+		public static function item_class( $classes = array(), $grid = 'grid-3' ) {
 
 			if ( ! is_array( $classes ) ) {
 				$classes = array( $classes );
 			}
 
-			$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options();
-
-			switch ( $parsed_options['grid_column'] ) {
+			switch ( $grid ) {
 				case 'grid-2':
 					$columns = 2;
 					$classes[] = 'col-lg-' . 6;
@@ -79,7 +77,6 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 			$class = implode( ' ', array_filter( $classes ) );
 
 			return $class;
-
 		}
 
 
