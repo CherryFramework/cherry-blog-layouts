@@ -23,7 +23,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 		 * @since 1.0.0
 		 * @var   object
 		 */
-		private $temp_query = null;
+		private static $temp_query = null;
 
 		public static $default_options = array();
 
@@ -55,12 +55,14 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 					'timeline_marker_date_format'		=> Cherry_Blog_Layouts::get_option( 'blog-layout-timeline-marker-date-format', 'F j, Y' ),
 					'content_grid_type'					=> Cherry_Blog_Layouts::get_option( 'blog-layout-grid-type', 'inherit' ),
 					'sidebar_position'					=> Cherry_Blog_Layouts::get_option( 'blog-layout-sidebar-position', 'inherit' ),
+					'pagination_previous_label'			=> Cherry_Blog_Layouts::get_option( 'pagination-previous-page', '&laquo;' ),
+					'pagination_next_label'				=> Cherry_Blog_Layouts::get_option( 'pagination-next-page', '&raquo;' ),
 					'posts_per_page'					=> 9,
 					'orderby'							=> 'date',
 					'order'								=> 'DESC',
 					'category'							=> '',
 					'paged'								=> 'true',
-					'template_type'						=> '',
+					'template_type'						=> Cherry_Blog_Layouts::get_option( 'blog-layout-template-type', 'default' ),
 					'class'								=> '',
 				);
 			}
@@ -110,20 +112,21 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 			return $html;
 		}
 
-		public static function pagination_render( $posts_query = '' ){
+		public static function setup_main_query( $posts_query = null ){
 			global $wp_query;
 
-			$temp_query = $wp_query;
+			self::$temp_query = $wp_query;
 			$wp_query = NULL;
 			$wp_query = $posts_query;
+		}
 
-			$html = get_the_posts_pagination();
+		public static function reset_main_query(){
+			global $wp_query;
 
 			$wp_query = NULL;
-			$wp_query = $temp_query;
-
-			return $html;
+			$wp_query = self::$temp_query;
 		}
+
 		/**
 		 * Returns the instance.
 		 *
@@ -143,5 +146,4 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 	}
 
 	Cherry_Blog_Layouts_Data::get_instance();
-
 }

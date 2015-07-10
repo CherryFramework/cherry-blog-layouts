@@ -13,9 +13,6 @@
   text-decoration: underline;
 }
 
-.grid-layout .grid-layout-item {
-  margin-bottom: 30px;
-}
 .grid-layout .grid-layout-item.clear-item {
   clear: both;
 }
@@ -25,14 +22,15 @@
   position: relative;
 }
 .masonry-layout .masonry-wrapper {
-  column-count: 3;
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
-  column-gap: 10px;
+  -webkit-column-count: 4;
   -webkit-column-gap: 10px;
+  -moz-column-count: 4;
   -moz-column-gap: 10px;
+  column-count: 4;
+  column-gap: 10px;
 }
 .masonry-layout .masonry-layout-item {
+  width: 100%;
   display: inline-block;
 }
 

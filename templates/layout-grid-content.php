@@ -44,5 +44,6 @@ $post_counter++;
 	$name = apply_filters( 'cherry_blog_layout_template_name', $format, 'grid' );
 
 	$prefix = ( !empty( $parsed_options['template_type'] ) ) ? '-'.$parsed_options['template_type'] : '';
+	var_dump('layout-grid'.$prefix);
 	Cherry_Blog_Template_Loader::get_tmpl( 'layout-grid'.$prefix, $name );
 ?></article>

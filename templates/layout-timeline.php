@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php
 	$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options();
 	echo Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ); ?>
-	<div class="timeline-wpapper">
+	<div class="timeline-wrapper">
 		<span class="timeline-line"></span>
 		<?php
 
@@ -25,4 +25,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="clear"></div>
 	</div>
 </div>
-<?php the_posts_pagination(); ?>
+<?php
+	$args = array(
+		'prev_text'	=> ( isset( $parsed_options['pagination_previous_label'] ) ) ? $parsed_options['pagination_previous_label'] : '&laquo;',
+		'next_text'	=> ( isset( $parsed_options['pagination_next_label'] ) ) ? $parsed_options['pagination_next_label'] : '&raquo;',
+	);
+	the_posts_pagination( $args );
+?>

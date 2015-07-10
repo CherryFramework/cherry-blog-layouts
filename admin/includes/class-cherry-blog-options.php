@@ -291,7 +291,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 				'icon'			=> 'dashicons dashicons-arrow-right',
 				'parent'		=> 'blog-section',
 				'priority'		=> 41,
-				'options-list'	=> $layout_options
+				'options-list'	=> apply_filters( 'cherry_blog_layout_options_list', $layout_options )
 			);
 
 			return $sections;

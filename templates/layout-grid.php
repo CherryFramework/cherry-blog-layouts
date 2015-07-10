@@ -22,4 +22,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		endwhile;
 	?>
 </div>
-<?php the_posts_pagination(); ?>
+<?php
+	$args = array(
+		'prev_text'	=> ( isset( $parsed_options['pagination_previous_label'] ) ) ? $parsed_options['pagination_previous_label'] : '&laquo;',
+		'next_text'	=> ( isset( $parsed_options['pagination_next_label'] ) ) ? $parsed_options['pagination_next_label'] : '&raquo;',
+	);
+	the_posts_pagination( $args );
+?>

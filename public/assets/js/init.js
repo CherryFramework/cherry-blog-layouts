@@ -86,7 +86,7 @@
 			$masonry_layout.each(function(){
 				var
 					$this = $(this)
-				,	$masonry_layout_wrapper = $('.masonry-wpapper', $this)
+				,	$masonry_layout_wrapper = $('.masonry-wrapper', $this)
 				,	$masonry_layout_list = $('.masonry-layout-item', $this)
 				,	masonry_columns = parseInt( $this.data('columns') )
 				,	masonry_gutter = parseInt( $this.data('gutter') )
@@ -107,6 +107,7 @@
 				CHERRY_API.variable.$window.on('resize.masonry_layout_resize', masonry_layout_resize );
 				function masonry_layout_resize( target ){
 					var new_column = self.resize_column_layout( masonry_columns );
+					console.log(new_column);
 					$masonry_layout_wrapper.css({
 						'column-count': new_column,
 						'-webkit-column-count': new_column,

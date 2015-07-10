@@ -234,6 +234,16 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 							'name'    => __( 'Timeline marker date format', 'cherry-blog-layouts' ),
 							'desc'    => __( 'Specify the date format', 'cherry-blog-layouts' )
 						),
+						'pagination_previous_label'   => array(
+							'default' => 'Prev',
+							'name'    => __( 'Prev button label', 'cherry-blog-layouts' ),
+							'desc'    => __( 'Previous button label text. Text or HTML can be used.', 'cherry-blog-layouts' )
+						),
+						'pagination_next_label'   => array(
+							'default' => 'Next',
+							'name'    => __( 'Next button label', 'cherry-blog-layouts' ),
+							'desc'    => __( 'Next button label text. Text or HTML can be used.', 'cherry-blog-layouts' )
+						),
 						'class'   => array(
 							'default' => '',
 							'name'    => __( 'Class', 'cherry-blog-layouts' ),
@@ -246,7 +256,6 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 			);
 
 			return $shortcodes;
-
 		}
 
 		/*
@@ -295,6 +304,8 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 				'timeline_breakpoint'				=> 'month',
 				'timeline_breakpoint_date_format'	=> 'F j, Y',
 				'show_marker_date'					=> 'no',
+				'pagination_previous_label'			=> 'Prev',
+				'pagination_next_label'				=> 'Next',
 				'timeline_marker_date_format'		=> 'F j, Y',
 				'class'								=> '',
 			);
@@ -347,7 +358,14 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 
 			$posts_query = new WP_Query( $query_args );
 
-			$pagination_html = ( 'true' === $parsed_options['paged'] ) ? Cherry_Blog_Layouts_Data::pagination_render( $posts_query ) : '';
+			Cherry_Blog_Layouts_Data::setup_main_query( $posts_query );
+
+			$args = array(
+				'prev_text'	=> ( isset( $parsed_options['pagination_previous_label'] ) ) ? $parsed_options['pagination_previous_label'] : '&laquo;',
+				'next_text'	=> ( isset( $parsed_options['pagination_next_label'] ) ) ? $parsed_options['pagination_next_label'] : '&raquo;',
+			);
+
+			$pagination_html = get_the_posts_pagination( $args );
 
 			if ( ! $posts_query->have_posts() ) {
 				return __( 'No posts found', 'cherry-blog-layouts' );
@@ -367,6 +385,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 				include $template_file;
 			}
 			$posts = ob_get_clean();
+			Cherry_Blog_Layouts_Data::reset_main_query();
 
 			switch ( $layout ) {
 				case 'grid':
@@ -386,18 +405,19 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 					}
 					$attrs = 'data-columns="' . $columns . '"';
 
-					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="grid-wpapper">%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html);
+					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="grid-wrapper">%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html);
 					break;
 				case 'masonry':
 					$attrs = 'data-columns="' . $parsed_options['columns'] . '"';
 					$attrs .= 'data-gutter="' . $parsed_options['columns_gutter'] . '"';
-					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="masonry-wpapper">%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html );
+					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="masonry-wrapper">%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html );
 					break;
 				case 'timeline':
 					$attrs = 'data-timeline-item-width="' . $parsed_options['timeline_item_width'] . '"';
-					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="timeline-wpapper"><span class="timeline-line"></span>%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html );
+					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="timeline-wrapper"><span class="timeline-line"></span>%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html );
 					break;
 			}
+
 		}
 
 		/**
@@ -438,3 +458,22 @@ function blog_layout_shortcode_settings( $settings ){
 	);
 	return $settings;
 }*/
+/*add_filter('cherry_blog_layout_options_list', 'blog_layout_options_list');
+
+function blog_layout_options_list( $settings ){
+	$settings['blog-layout-template-type'] = array(
+		'type'			=> 'select',
+		'title'			=> __('Template type', 'cherry'),
+		'label'			=> '',
+		'description'	=> __('Select template type for blog posts', 'cherry'),
+		'value'			=> 'default',
+		'class'			=> '',
+		'options'		=> array(
+			'default'	=> __( 'Default', 'cherry-blog-layouts' ),
+			'type-1'	=> __( 'Type 1', 'cherry-blog-layouts' ),
+			'type-2'	=> __( 'Type 2', 'cherry-blog-layouts' ),
+		)
+	);
+	return $settings;
+}
+*/
