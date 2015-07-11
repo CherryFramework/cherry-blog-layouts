@@ -458,7 +458,7 @@ function blog_layout_shortcode_settings( $settings ){
 	);
 	return $settings;
 }*/
-add_filter('cherry_blog_layout_options_list', 'blog_layout_options_list');
+/*add_filter('cherry_blog_layout_options_list', 'blog_layout_options_list');
 
 function blog_layout_options_list( $settings ){
 	$settings['blog-layout-template-type'] = array(
@@ -475,4 +475,4 @@ function blog_layout_options_list( $settings ){
 		)
 	);
 	return $settings;
-}
+}*/
