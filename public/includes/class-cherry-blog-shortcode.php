@@ -405,16 +405,16 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 					}
 					$attrs = 'data-columns="' . $columns . '"';
 
-					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="grid-wrapper">%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html);
+					return sprintf( '<div class="%2$s-layout %6$s" %3$s>%4$s<div class="grid-wrapper">%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html, $parsed_options['class'] );
 					break;
 				case 'masonry':
 					$attrs = 'data-columns="' . $parsed_options['columns'] . '"';
 					$attrs .= 'data-gutter="' . $parsed_options['columns_gutter'] . '"';
-					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="masonry-wrapper">%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html );
+					return sprintf( '<div class="%2$s-layout %6$s" %3$s>%4$s<div class="masonry-wrapper">%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html, $parsed_options['class'] );
 					break;
 				case 'timeline':
 					$attrs = 'data-timeline-item-width="' . $parsed_options['timeline_item_width'] . '"';
-					return sprintf( '<div class="%2$s-layout" %3$s>%4$s<div class="timeline-wrapper"><span class="timeline-line"></span>%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html );
+					return sprintf( '<div class="%2$s-layout %6$s" %3$s>%4$s<div class="timeline-wrapper"><span class="timeline-line"></span>%1$s<div class="clear"></div></div></div>%5$s', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html, $parsed_options['class'] );
 					break;
 			}
 
@@ -458,7 +458,7 @@ function blog_layout_shortcode_settings( $settings ){
 	);
 	return $settings;
 }*/
-/*add_filter('cherry_blog_layout_options_list', 'blog_layout_options_list');
+add_filter('cherry_blog_layout_options_list', 'blog_layout_options_list');
 
 function blog_layout_options_list( $settings ){
 	$settings['blog-layout-template-type'] = array(
@@ -476,4 +476,3 @@ function blog_layout_options_list( $settings ){
 	);
 	return $settings;
 }
-*/
