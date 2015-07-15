@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php
 
 			$post_counter = 0;
+			$index_counter = 1;
 			$break_point_date = '';
 
 			while ( have_posts() ) : the_post();

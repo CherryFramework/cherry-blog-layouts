@@ -43,7 +43,10 @@ if ( 'true' === $parsed_options['use_timeline_breakpoint'] ) {
 
 ( $post_counter % 2 == 0 ) ? $even = ' odd' : $even = ' even';
 
-?> <article class="<?php echo apply_filters( 'cherry_blog_layout_item_class', 'timeline-layout-item', 'masonry' ); echo $even; ?>">
+$break_index = apply_filters( 'cherry_blog_layout_timeline_break_index', 5 );
+
+$item_index_class = ' item-'.$index_counter;
+?> <article class="<?php echo apply_filters( 'cherry_blog_layout_item_class', 'timeline-layout-item', 'masonry' ); echo $even; echo $item_index_class;?>">
 	<div class="inner">
 <?php
 
@@ -60,4 +63,5 @@ Cherry_Blog_Template_Loader::get_tmpl( 'layout-timeline'.$prefix, $name );
 
 ?> </div></article> <?php
 
-$post_counter ++;
+$post_counter++;
+( $index_counter == $break_index ) ? $index_counter = 0 : $index_counter++ ;
