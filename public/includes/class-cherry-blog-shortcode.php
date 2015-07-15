@@ -377,6 +377,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 			ob_start();
 
 			$post_counter = 0;
+			$index_counter = 1;
 			$break_point_date = '';
 
 			while ( $posts_query->have_posts() ) {
