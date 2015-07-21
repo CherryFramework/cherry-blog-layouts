@@ -406,19 +406,30 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 					}
 					$attrs = 'data-columns="' . $columns . '"';
 
-					return sprintf( '<div class="%2$s-layout %6$s" %3$s>%4$s<div class="grid-wrapper">%1$s<div class="clear"></div></div>%5$s</div>', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html, $parsed_options['class'] );
+					$html = sprintf( '<div class="%2$s-layout %6$s" %3$s>%4$s<div class="grid-wrapper">%1$s<div class="clear"></div></div>%5$s</div>', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html, $parsed_options['class'] );
 					break;
 				case 'masonry':
 					$attrs = 'data-columns="' . $parsed_options['columns'] . '"';
 					$attrs .= 'data-gutter="' . $parsed_options['columns_gutter'] . '"';
-					return sprintf( '<div class="%2$s-layout %6$s" %3$s>%4$s<div class="masonry-wrapper">%1$s<div class="clear"></div></div>%5$s</div>', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html, $parsed_options['class'] );
+					$html = sprintf( '<div class="%2$s-layout %6$s" %3$s>%4$s<div class="masonry-wrapper">%1$s<div class="clear"></div></div>%5$s</div>', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html, $parsed_options['class'] );
 					break;
 				case 'timeline':
 					$attrs = 'data-timeline-item-width="' . $parsed_options['timeline_item_width'] . '"';
-					return sprintf( '<div class="%2$s-layout %6$s" %3$s>%4$s<div class="timeline-wrapper"><span class="timeline-line"></span>%1$s<div class="clear"></div></div>%5$s</div>', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html, $parsed_options['class'] );
+					$html = sprintf( '<div class="%2$s-layout %6$s" %3$s>%4$s<div class="timeline-wrapper"><span class="timeline-line"></span>%1$s<div class="clear"></div></div>%5$s</div>', $posts, $layout, $attrs, Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ), $pagination_html, $parsed_options['class'] );
 					break;
 			}
 
+			/**
+			* Filters $html before return.
+			*
+			* @since 1.0.0
+			* @param string $html
+			* @param array  $atts
+			* @param string $shortcode
+			*/
+			$html = apply_filters( 'cherry_shortcodes_output', $html, $atts, 'blog' );
+
+			return $html;
 		}
 
 		/**

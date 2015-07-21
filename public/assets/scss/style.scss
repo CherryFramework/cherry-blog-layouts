@@ -26,16 +26,14 @@
 	position: relative;
 		.masonry-wrapper{
 			-webkit-column-count: 4;
-			-webkit-column-gap: 10px;
-
 			-moz-column-count: 4;
-			-moz-column-gap: 10px;
-
 			column-count: 4;
+			-webkit-column-gap: 10px;
+			-moz-column-gap: 10px;
 			column-gap: 10px;
-
 		}
 		.masonry-layout-item{
+			-webkit-transform: translate3d(0, 0, 0);
 			width: 100%;
 			display: inline-block;
 		}
