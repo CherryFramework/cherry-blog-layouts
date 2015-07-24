@@ -40,7 +40,8 @@ if( $post_counter === 0 ){
 }
 
 $post_counter++;
-?><article class="<?php echo Cherry_Blog_Layouts_Tools::item_class( 'grid-layout-item', $parsed_options['grid_column'] ); ?>"><?php
+$post_format = $format . '-post-format';
+?><article class="<?php echo Cherry_Blog_Layouts_Tools::item_class( 'grid-layout-item', $parsed_options['grid_column'] );?> <?php echo $post_format ?>"><?php
 	$name = apply_filters( 'cherry_blog_layout_template_name', $format, 'grid' );
 
 	$prefix = ( !empty( $parsed_options['template_type'] ) ) ? '-'.$parsed_options['template_type'] : '';
