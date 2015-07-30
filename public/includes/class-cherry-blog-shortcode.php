@@ -137,8 +137,8 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 						'paged' => array(
 							'type'    => 'bool',
 							'default' => 'no',
-							'name'    => __( 'Show pager', 'cherry-blog-layouts' ),
-							'desc'    => __( 'Show paged navigation or not', 'cherry-blog-layouts' ),
+							'name'    => __( 'Show pages', 'cherry-blog-layouts' ),
+							'desc'    => __( 'Show page navigation or not', 'cherry-blog-layouts' ),
 						),
 						'layout_type' => array(
 							'type' => 'select',
@@ -221,7 +221,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 						'timeline_breakpoint_date_format'   => array(
 							'default' => 'F j, Y',
 							'name'    => __( 'Timeline breakpoint date format', 'cherry-blog-layouts' ),
-							'desc'    => __( 'Specify the date format', 'cherry-blog-layouts' )
+							'desc'    => __( 'Specify date format', 'cherry-blog-layouts' )
 						),
 						'show_marker_date' => array(
 							'type'    => 'bool',
@@ -232,7 +232,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 						'timeline_marker_date_format'   => array(
 							'default' => 'F j, Y',
 							'name'    => __( 'Timeline marker date format', 'cherry-blog-layouts' ),
-							'desc'    => __( 'Specify the date format', 'cherry-blog-layouts' )
+							'desc'    => __( 'Specify date format', 'cherry-blog-layouts' )
 						),
 						'pagination_previous_label'   => array(
 							'default' => 'Prev',
