@@ -70,17 +70,14 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 		 * @return array
 		 */
 		public function add_to_editor( $shortcodes ) {
-
-			$terms = get_terms( 'category', 'slug' );
-
 			$terms_list = array();
-			if ( ! is_wp_error( $terms ) ) {
-				$terms_list = wp_list_pluck( $terms, 'name', 'slug' );
-			}
 
-			$sizes_list = array();
-			if ( class_exists( 'Cherry_Shortcodes_Tools' ) && method_exists( 'Cherry_Shortcodes_Tools', 'image_sizes' ) ) {
-				$sizes_list = Cherry_Shortcodes_Tools::image_sizes();
+			if ( did_action( 'wp_ajax_cherry_shortcodes_generator_settings' ) ) {
+				$terms = get_terms( 'category' );
+
+				if ( ! is_wp_error( $terms ) ) {
+					$terms_list = wp_list_pluck( $terms, 'name', 'slug' );
+				}
 			}
 
 			$shortcodes[ $this->name ] = apply_filters( 'cherry_blog_layout_shortcode_settings',
