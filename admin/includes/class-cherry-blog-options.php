@@ -56,7 +56,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 					'description'	=> '',
 					'hint'			=> array(
 						'type'		=> 'text',
-						'content' => __( 'Select if you want to folter posts by tag or by category', 'cherry-blog-layouts' )
+						'content' => __( 'Select if you want to filter posts by tag or by category', 'cherry-blog-layouts' )
 					),
 					'value'			=> 'grid',
 					'class'			=> 'width-full',
