@@ -1,10 +1,9 @@
 <?php
-
 /**
  * Plugin Name: Cherry Blog Layouts
  * Plugin URI:  http://www.cherryframework.com/
  * Description: Additional blog layouts.
- * Version:     1.0.2-beta
+ * Version:     1.0.2
  * Author:      Cherry Team
  * Author URI:  http://www.cherryframework.com/
  * Text Domain: cherry-blog-layouts
@@ -96,7 +95,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 			 *
 			 * @since 1.0.0
 			 */
-			define( 'CHERRY_BLOG_VERSION', '1.0.2-beta');
+			define( 'CHERRY_BLOG_VERSION', '1.0.2');
 
 			/**
 			 * Set the slug of the plugin.
