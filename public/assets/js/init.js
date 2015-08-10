@@ -90,9 +90,22 @@
 				,	$masonry_layout_list = $('.masonry-layout-item', $this)
 				,	masonry_columns = parseInt( $this.data('columns') )
 				,	masonry_gutter = parseInt( $this.data('gutter') )
+				,	isotopeOptions = {
+						itemSelector : '.masonry-layout-item',
+						resizable: false,
+						masonry: { columnWidth: Math.floor( $masonry_layout_wrapper.width() / masonry_columns ) }
+					}
 				;
 
-				$masonry_layout_wrapper.css({
+				$masonry_layout_list.css({
+					'width': Math.floor( $masonry_layout_wrapper.width() / masonry_columns ) - masonry_gutter
+				,	'margin': Math.ceil( masonry_gutter / 2 )
+				});
+				$masonry_layout_wrapper.imagesLoaded( function() {
+					$masonry_layout_wrapper.isotope( isotopeOptions )
+				} )
+
+				/*$masonry_layout_wrapper.css({
 					'column-count': masonry_columns,
 					'-webkit-column-count': masonry_columns,
 					'-moz-column-count': masonry_columns,
@@ -102,16 +115,26 @@
 				});
 				$masonry_layout_list.css({
 					'margin-bottom' : masonry_gutter,
-				});
+				});*/
 
 				CHERRY_API.variable.$window.on('resize.masonry_layout_resize', masonry_layout_resize ).trigger('resize.masonry_layout_resize');
 				function masonry_layout_resize( target ){
-					var new_column = self.resize_column_layout( masonry_columns );
-					$masonry_layout_wrapper.css({
+					var
+						new_column = self.resize_column_layout( masonry_columns )
+					,	new_width = Math.floor( $masonry_layout_wrapper.width() / new_column ) - masonry_gutter
+					;
+
+					$masonry_layout_list.css({
+						'width': new_width
+					});
+					$masonry_layout_wrapper.isotope({
+						masonry: { columnWidth: new_width + masonry_gutter }
+					});
+					/*$masonry_layout_wrapper.css({
 						'column-count': new_column,
 						'-webkit-column-count': new_column,
 						'-moz-column-count': new_column,
-					})
+					})*/
 				}
 			})
 		},

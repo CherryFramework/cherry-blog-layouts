@@ -22,17 +22,19 @@
   position: relative;
 }
 .masonry-layout .masonry-wrapper {
-  -webkit-column-count: 4;
+  /*-webkit-column-count: 4;
   -moz-column-count: 4;
   column-count: 4;
   -webkit-column-gap: 10px;
   -moz-column-gap: 10px;
-  column-gap: 10px;
+  column-gap: 10px;*/
 }
 .masonry-layout .masonry-layout-item {
-  -webkit-transform: translate3d(0, 0, 0);
-  width: 100%;
+  width: 20%;
   display: inline-block;
+  /*-webkit-transform: translate3d(0, 0, 0);
+  width: 100%;
+  display: inline-block;*/
 }
 
 .timeline-layout {

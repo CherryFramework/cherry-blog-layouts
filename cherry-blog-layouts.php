@@ -1,10 +1,13 @@
 <?php
-
 /**
  * Plugin Name: Cherry Blog Layouts
  * Plugin URI:  http://www.cherryframework.com/
  * Description: Additional blog layouts.
+<<<<<<< HEAD
  * Version:     1.0.1
+=======
+ * Version:     1.0.2
+>>>>>>> c54268f6ae73b90e01deb938ab05147719e81df6
  * Author:      Cherry Team
  * Author URI:  http://www.cherryframework.com/
  * Text Domain: cherry-blog-layouts
@@ -69,6 +72,8 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 			// css assets
 			wp_enqueue_style( 'cherry-blog-style', CHERRY_BLOG_URI . 'public/assets/css/style.css', array(), CHERRY_BLOG_VERSION );
 			// js assets
+			wp_enqueue_script( 'imagesloaded', CHERRY_BLOG_URI . 'public/assets/js/imagesloaded.pkgd.js', array('jquery'), CHERRY_BLOG_VERSION, true );
+			wp_enqueue_script( 'isotope', CHERRY_BLOG_URI . 'public/assets/js/isotope.pkgd.min.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 			wp_enqueue_script( 'cherry-api', CHERRY_BLOG_URI . 'public/assets/js/cherry-api.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 			wp_enqueue_script( 'cherry-blog-scripts', CHERRY_BLOG_URI . 'public/assets/js/init.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 		}
@@ -94,7 +99,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 			 *
 			 * @since 1.0.0
 			 */
-			define( 'CHERRY_BLOG_VERSION', '1.0.1');
+			define( 'CHERRY_BLOG_VERSION', '1.0.2');
 
 			/**
 			 * Set the slug of the plugin.
