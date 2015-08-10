@@ -3,11 +3,7 @@
  * Plugin Name: Cherry Blog Layouts
  * Plugin URI:  http://www.cherryframework.com/
  * Description: Additional blog layouts.
-<<<<<<< HEAD
- * Version:     1.0.1
-=======
  * Version:     1.0.2
->>>>>>> c54268f6ae73b90e01deb938ab05147719e81df6
  * Author:      Cherry Team
  * Author URI:  http://www.cherryframework.com/
  * Text Domain: cherry-blog-layouts
