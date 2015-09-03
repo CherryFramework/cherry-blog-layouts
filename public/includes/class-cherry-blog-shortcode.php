@@ -327,8 +327,8 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 			$query_args['order']            = $parsed_options['order'];
 			$query_args['suppress_filters'] = false;
 
-			if ( ! empty( $args['category'] ) ) {
-				$cat = str_replace( ' ', ',', $args['category'] );
+			if ( ! empty( $atts['category'] ) ) {
+				$cat = str_replace( ' ', ',', $atts['category'] );
 				$cat = explode( ',', $cat );
 				if ( is_array( $cat ) ) {
 					$query_args['tax_query'] = array(
