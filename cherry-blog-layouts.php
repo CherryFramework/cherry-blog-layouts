@@ -187,15 +187,17 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 		 * @since 1.0.0
 		 */
 		public function _admin() {
-			require CHERRY_BLOG_DIR . 'admin/includes/class-cherry-blog-options.php';
-			require_once( CHERRY_BLOG_DIR . 'admin/includes/class-cherry-update/class-cherry-plugin-update.php' );
+			if ( is_admin() ) {
+				require CHERRY_BLOG_DIR . 'admin/includes/class-cherry-blog-options.php';
+				require_once( CHERRY_BLOG_DIR . 'admin/includes/class-cherry-update/class-cherry-plugin-update.php' );
 
-			$Cherry_Plugin_Update = new Cherry_Plugin_Update();
-			$Cherry_Plugin_Update -> init( array(
-					'version'			=> CHERRY_BLOG_VERSION,
-					'slug'				=> CHERRY_BLOG_SLUG,
-					'repository_name'	=> CHERRY_BLOG_SLUG
-			));
+				$Cherry_Plugin_Update = new Cherry_Plugin_Update();
+				$Cherry_Plugin_Update -> init( array(
+						'version'			=> CHERRY_BLOG_VERSION,
+						'slug'				=> CHERRY_BLOG_SLUG,
+						'repository_name'	=> CHERRY_BLOG_SLUG
+				));
+			}
 		}
 
 		/**
