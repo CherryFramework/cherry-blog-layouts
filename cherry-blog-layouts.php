@@ -69,12 +69,24 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 			// css assets
 			wp_enqueue_style( 'cherry-blog-style', CHERRY_BLOG_URI . 'public/assets/css/style.css', array(), CHERRY_BLOG_VERSION );
 			// js assets
+			//wp_enqueue_script( 'imagesloaded', CHERRY_BLOG_URI . 'public/assets/js/imagesloaded.pkgd.js', array('jquery'), CHERRY_BLOG_VERSION, true );
+			//wp_enqueue_script( 'isotope', CHERRY_BLOG_URI . 'public/assets/js/isotope.pkgd.min.js', array('jquery'), CHERRY_BLOG_VERSION, true );
+			//wp_enqueue_script( 'cherry-api', CHERRY_BLOG_URI . 'public/assets/js/cherry-api.js', array('jquery'), CHERRY_BLOG_VERSION, true );
+			//wp_enqueue_script( 'cherry-blog-scripts', CHERRY_BLOG_URI . 'public/assets/js/init.js', array('jquery'), CHERRY_BLOG_VERSION, true );
+		}
+
+		/**
+		 * Register and enqueue public-facing script sheet.
+		 *
+		 * @since 1.0.0
+		 */
+		public static function enqueue_scripts() {
+			// js assets
 			wp_enqueue_script( 'imagesloaded', CHERRY_BLOG_URI . 'public/assets/js/imagesloaded.pkgd.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 			wp_enqueue_script( 'isotope', CHERRY_BLOG_URI . 'public/assets/js/isotope.pkgd.min.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 			wp_enqueue_script( 'cherry-api', CHERRY_BLOG_URI . 'public/assets/js/cherry-api.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 			wp_enqueue_script( 'cherry-blog-scripts', CHERRY_BLOG_URI . 'public/assets/js/init.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 		}
-
 		/**
 		 * Pass style handle to CSS compiler.
 		 *
@@ -203,6 +215,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 
 			return $default;
 		}
+
 
 		/**
 		 * Returns the instance.
