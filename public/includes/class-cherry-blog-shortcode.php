@@ -70,17 +70,14 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 		 * @return array
 		 */
 		public function add_to_editor( $shortcodes ) {
-
-			$terms = get_terms( 'category', 'slug' );
-
 			$terms_list = array();
-			if ( ! is_wp_error( $terms ) ) {
-				$terms_list = wp_list_pluck( $terms, 'name', 'slug' );
-			}
 
-			$sizes_list = array();
-			if ( class_exists( 'Cherry_Shortcodes_Tools' ) && method_exists( 'Cherry_Shortcodes_Tools', 'image_sizes' ) ) {
-				$sizes_list = Cherry_Shortcodes_Tools::image_sizes();
+			if ( did_action( 'wp_ajax_cherry_shortcodes_generator_settings' ) ) {
+				$terms = get_terms( 'category' );
+
+				if ( ! is_wp_error( $terms ) ) {
+					$terms_list = wp_list_pluck( $terms, 'name', 'slug' );
+				}
 			}
 
 			$shortcodes[ $this->name ] = apply_filters( 'cherry_blog_layout_shortcode_settings',
@@ -137,8 +134,8 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 						'paged' => array(
 							'type'    => 'bool',
 							'default' => 'no',
-							'name'    => __( 'Show pager', 'cherry-blog-layouts' ),
-							'desc'    => __( 'Show paged navigation or not', 'cherry-blog-layouts' ),
+							'name'    => __( 'Show pages', 'cherry-blog-layouts' ),
+							'desc'    => __( 'Show page navigation or not', 'cherry-blog-layouts' ),
 						),
 						'layout_type' => array(
 							'type' => 'select',
@@ -221,7 +218,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 						'timeline_breakpoint_date_format'   => array(
 							'default' => 'F j, Y',
 							'name'    => __( 'Timeline breakpoint date format', 'cherry-blog-layouts' ),
-							'desc'    => __( 'Specify the date format', 'cherry-blog-layouts' )
+							'desc'    => __( 'Specify date format', 'cherry-blog-layouts' )
 						),
 						'show_marker_date' => array(
 							'type'    => 'bool',
@@ -232,7 +229,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 						'timeline_marker_date_format'   => array(
 							'default' => 'F j, Y',
 							'name'    => __( 'Timeline marker date format', 'cherry-blog-layouts' ),
-							'desc'    => __( 'Specify the date format', 'cherry-blog-layouts' )
+							'desc'    => __( 'Specify date format', 'cherry-blog-layouts' )
 						),
 						'pagination_previous_label'   => array(
 							'default' => 'Prev',
@@ -332,8 +329,8 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 			$query_args['order']            = $parsed_options['order'];
 			$query_args['suppress_filters'] = false;
 
-			if ( ! empty( $args['category'] ) ) {
-				$cat = str_replace( ' ', ',', $args['category'] );
+			if ( ! empty( $atts['category'] ) ) {
+				$cat = str_replace( ' ', ',', $atts['category'] );
 				$cat = explode( ',', $cat );
 				if ( is_array( $cat ) ) {
 					$query_args['tax_query'] = array(
