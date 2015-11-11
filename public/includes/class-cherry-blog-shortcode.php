@@ -319,6 +319,8 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 			$atts['show_marker_date'] = ( bool ) ( $atts['show_marker_date'] === 'yes' ) ? 'true' : 'false';
 			$atts['paged'] = ( bool ) ( $atts['paged'] === 'yes' ) ? 'true' : 'false';
 
+			Cherry_Blog_Layouts::enqueue_scripts();
+
 			$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options( $atts );
 
 			$query_args = array();

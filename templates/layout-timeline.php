@@ -8,6 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }?>
 <div class="<?php echo apply_filters( 'cherry_blog_layout_wrapper_class', 'timeline-layout', 'timeline' ); ?>"<?php echo Cherry_Blog_Layouts_Tools::wrapper_attrs() ?>>
 	<?php
+	Cherry_Blog_Layouts::enqueue_scripts();
 	$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options();
 	echo Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ); ?>
 	<div class="timeline-wrapper">

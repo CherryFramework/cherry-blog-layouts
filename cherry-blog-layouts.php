@@ -3,7 +3,7 @@
  * Plugin Name: Cherry Blog Layouts
  * Plugin URI:  http://www.cherryframework.com/
  * Description: Additional blog layouts.
- * Version:     1.0.4
+ * Version:     1.0.5
  * Author:      Cherry Team
  * Author URI:  http://www.cherryframework.com/
  * Text Domain: cherry-blog-layouts
@@ -69,12 +69,24 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 			// css assets
 			wp_enqueue_style( 'cherry-blog-style', CHERRY_BLOG_URI . 'public/assets/css/style.css', array(), CHERRY_BLOG_VERSION );
 			// js assets
+			//wp_enqueue_script( 'imagesloaded', CHERRY_BLOG_URI . 'public/assets/js/imagesloaded.pkgd.js', array('jquery'), CHERRY_BLOG_VERSION, true );
+			//wp_enqueue_script( 'isotope', CHERRY_BLOG_URI . 'public/assets/js/isotope.pkgd.min.js', array('jquery'), CHERRY_BLOG_VERSION, true );
+			//wp_enqueue_script( 'cherry-api', CHERRY_BLOG_URI . 'public/assets/js/cherry-api.js', array('jquery'), CHERRY_BLOG_VERSION, true );
+			//wp_enqueue_script( 'cherry-blog-scripts', CHERRY_BLOG_URI . 'public/assets/js/init.js', array('jquery'), CHERRY_BLOG_VERSION, true );
+		}
+
+		/**
+		 * Register and enqueue public-facing script sheet.
+		 *
+		 * @since 1.0.0
+		 */
+		public static function enqueue_scripts() {
+			// js assets
 			wp_enqueue_script( 'imagesloaded', CHERRY_BLOG_URI . 'public/assets/js/imagesloaded.pkgd.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 			wp_enqueue_script( 'isotope', CHERRY_BLOG_URI . 'public/assets/js/isotope.pkgd.min.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 			wp_enqueue_script( 'cherry-api', CHERRY_BLOG_URI . 'public/assets/js/cherry-api.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 			wp_enqueue_script( 'cherry-blog-scripts', CHERRY_BLOG_URI . 'public/assets/js/init.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 		}
-
 		/**
 		 * Pass style handle to CSS compiler.
 		 *
@@ -112,7 +124,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 			 *
 			 * @since 1.0.0
 			 */
-			define( 'CHERRY_BLOG_VERSION', '1.0.4' );
+			define( 'CHERRY_BLOG_VERSION', '1.0.5' );
 
 			/**
 			 * Set the slug of the plugin.
@@ -175,15 +187,17 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 		 * @since 1.0.0
 		 */
 		public function _admin() {
-			require CHERRY_BLOG_DIR . 'admin/includes/class-cherry-blog-options.php';
-			require_once( CHERRY_BLOG_DIR . 'admin/includes/class-cherry-update/class-cherry-plugin-update.php' );
+			if ( is_admin() ) {
+				require CHERRY_BLOG_DIR . 'admin/includes/class-cherry-blog-options.php';
+				require_once( CHERRY_BLOG_DIR . 'admin/includes/class-cherry-update/class-cherry-plugin-update.php' );
 
-			$Cherry_Plugin_Update = new Cherry_Plugin_Update();
-			$Cherry_Plugin_Update -> init( array(
-					'version'			=> CHERRY_BLOG_VERSION,
-					'slug'				=> CHERRY_BLOG_SLUG,
-					'repository_name'	=> CHERRY_BLOG_SLUG
-			));
+				$Cherry_Plugin_Update = new Cherry_Plugin_Update();
+				$Cherry_Plugin_Update -> init( array(
+						'version'			=> CHERRY_BLOG_VERSION,
+						'slug'				=> CHERRY_BLOG_SLUG,
+						'repository_name'	=> CHERRY_BLOG_SLUG
+				));
+			}
 		}
 
 		/**
@@ -203,6 +217,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 
 			return $default;
 		}
+
 
 		/**
 		 * Returns the instance.
