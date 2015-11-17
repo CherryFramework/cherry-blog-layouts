@@ -1,6 +1,12 @@
 <?php
 /**
- * Grid Layout type template
+ * Grid Layout type template.
+ *
+ * @package   Cherry_Blog_Layouts
+ * @author    Cherry Team
+ * @license   GPL-2.0+
+ * @link      http://www.cherryframework.com/
+ * @copyright 2015 Cherry Team
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,12 +23,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php
 		$post_counter = 0;
 		$columns = Cherry_Blog_Layouts::get_option( 'blog-layout-columns', 3 );
+
 		while ( have_posts() ) : the_post();
 			$template_file = Cherry_Blog_Template_Loader::get_template( 'layout-grid', 'content' );
 			include $template_file;
 		endwhile;
 	?>
 </div>
+
 <?php
 	$args = array(
 		'prev_text'	=> ( isset( $parsed_options['pagination_previous_label'] ) ) ? $parsed_options['pagination_previous_label'] : '&laquo;',

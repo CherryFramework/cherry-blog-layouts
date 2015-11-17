@@ -1,11 +1,18 @@
 <?php
 /**
- * Timeline Layout type template
+ * Timeline layout type template.
+ *
+ * @package   Cherry_Blog_Layouts
+ * @author    Cherry Team
+ * @license   GPL-2.0+
+ * @link      http://www.cherryframework.com/
+ * @copyright 2015 Cherry Team
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die();
 }?>
+
 <div class="<?php echo apply_filters( 'cherry_blog_layout_wrapper_class', 'timeline-layout', 'timeline' ); ?>"<?php echo Cherry_Blog_Layouts_Tools::wrapper_attrs() ?>>
 	<?php
 	Cherry_Blog_Layouts::enqueue_scripts();

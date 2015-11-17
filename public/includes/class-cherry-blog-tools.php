@@ -30,6 +30,11 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 		 */
 		private static $instance = null;
 
+		/**
+		 * Sets up needed actions/filters for the class to initialize.
+		 *
+		 * @since 1.0.0
+		 */
 		function __construct() {
 			add_filter( 'cherry_blog_layout_wrapper_class', array( $this, 'wrapper_classes' ), 10, 2 );
 			add_filter( 'cherry_get_page_layout', array( $this, 'rewrite_layout' ) );
@@ -191,8 +196,8 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 		 *
 		 * @since  1.0.0
 		 *
-		 * @param  array  $grid_type  default page grid type.
-		 * @return array              rewritten grid type.
+		 * @param  array $grid_type  default page grid type.
+		 * @return array             rewritten grid type.
 		 */
 		public function rewrite_grid_type( $grid_type ) {
 
@@ -226,7 +231,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 		public static function get_instance() {
 
 			// If the single instance hasn't been set, set it now.
-			if ( null == self::$instance ){
+			if ( null == self::$instance ) {
 				self::$instance = new self;
 			}
 

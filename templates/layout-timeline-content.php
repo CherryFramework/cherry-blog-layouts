@@ -1,6 +1,12 @@
 <?php
 /**
- * contentTimeline Layout type template
+ * Timeline layout type content template.
+ *
+ * @package   Cherry_Blog_Layouts
+ * @author    Cherry Team
+ * @license   GPL-2.0+
+ * @link      http://www.cherryframework.com/
+ * @copyright 2015 Cherry Team
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -20,18 +26,22 @@ switch ( $parsed_options['timeline_breakpoint'] ) {
 	case 'year':
 		$current_date = get_the_date('Y');
 		$date_format = 'Y';
+
 		break;
 	case 'month':
 		$current_date = get_the_date('F Y');
+
 		break;
 	case 'day':
 		$current_date = get_the_date('d F Y');
+
 		break;
 }
+
 $current_date_format = get_the_date( $date_format );
 
 if ( 'true' === $parsed_options['use_timeline_breakpoint'] ) {
-	if( !$break_point_date ){?>
+	if( ! $break_point_date ) {?>
 		<div class="timeline-breakpiont"><?php echo $current_date_format ?></div><section class="timeline-group">
 		<?php $break_point_date = $current_date;
 	} elseif ( strtotime( $break_point_date ) > strtotime( $current_date ) ) {
@@ -45,7 +55,7 @@ if ( 'true' === $parsed_options['use_timeline_breakpoint'] ) {
 
 $break_index = apply_filters( 'cherry_blog_layout_timeline_break_index', 5 );
 
-$item_index_class = ' item-'.$index_counter;
+$item_index_class = ' item-' . $index_counter;
 ?> <article class="<?php echo apply_filters( 'cherry_blog_layout_item_class', 'timeline-layout-item', 'masonry' ); echo $even; echo $item_index_class;?>">
 	<div class="inner">
 <?php
@@ -58,8 +68,8 @@ echo apply_filters( 'cherry_blog_layout_timeline_arrow', '<div class="arrow"><sp
 $name = apply_filters( 'cherry_blog_layout_template_name', $format, 'timeline' );
 
 
-$prefix = ( !empty( $parsed_options['template_type'] ) ) ? '-'.$parsed_options['template_type'] : '';
-Cherry_Blog_Template_Loader::get_tmpl( 'layout-timeline'.$prefix, $name );
+$prefix = ( ! empty( $parsed_options['template_type'] ) ) ? '-' . $parsed_options['template_type'] : '';
+Cherry_Blog_Template_Loader::get_tmpl( 'layout-timeline' . $prefix, $name );
 
 ?> </div></article> <?php
 

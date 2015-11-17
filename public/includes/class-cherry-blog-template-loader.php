@@ -46,6 +46,11 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 		 */
 		public $templates = array();
 
+		/**
+		 * Sets up needed actions/filters for the class to initialize.
+		 *
+		 * @since 1.0.0
+		 */
 		function __construct() {
 
 			// Rewrite default blog templates
@@ -229,7 +234,7 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 		public static function get_instance() {
 
 			// If the single instance hasn't been set, set it now.
-			if ( null == self::$instance ){
+			if ( null == self::$instance ) {
 				self::$instance = new self;
 			}
 

@@ -30,6 +30,12 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 		 */
 		private static $temp_query = null;
 
+		/**
+		 * Default options array.
+		 *
+		 * @since 1.0.0
+		 * @var array
+		 */
 		public static $default_options = array();
 
 		/**
@@ -41,7 +47,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 		private static $instance = null;
 
 		/**
-		 * Sets up and initializes the Blog Layout plugin.
+		 * Sets up needed actions/filters for the class to initialize.
 		 *
 		 * @since 1.0.0
 		 */
@@ -50,6 +56,12 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 			// init functionally
 		}
 
+		/**
+		 * Get parsed options.
+		 *
+		 * @param  string $options Modified options array.
+		 * @return string|array    Merged options array.
+		 */
 		public static function get_parsed_options( $options = '' ) {
 			if ( empty( self::$default_options ) ) {
 				self::$default_options = array(
@@ -117,10 +129,10 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 					if ( 'page' == get_option( 'show_on_front' ) ) {
 						$all_terms = get_permalink( get_option( 'page_for_posts' ) );
 					} else {
-						$all_terms =get_bloginfo( 'url', 'display' );
+						$all_terms = get_bloginfo( 'url', 'display' );
 					}
 
-					$html .= '<li><a href="' . $all_terms . '/">' . apply_filters( 'cherry_blog_layout_all_terms_text', __('All', 'cherry-blog') ) .'</a></li>';
+					$html .= '<li><a href="' . $all_terms . '/">' . apply_filters( 'cherry_blog_layout_all_terms_text', __( 'All', 'cherry-blog' ) ) .'</a></li>';
 
 						foreach ( $terms as $term ) {
 							switch ( $filter_type ) {
@@ -151,7 +163,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 			global $wp_query;
 
 			self::$temp_query = $wp_query;
-			$wp_query = NULL;
+			$wp_query = null;
 			$wp_query = $posts_query;
 		}
 
@@ -163,7 +175,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 		public static function reset_main_query() {
 			global $wp_query;
 
-			$wp_query = NULL;
+			$wp_query = null;
 			$wp_query = self::$temp_query;
 		}
 
@@ -176,7 +188,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 		public static function get_instance() {
 
 			// If the single instance hasn't been set, set it now.
-			if ( null == self::$instance ){
+			if ( null == self::$instance ) {
 				self::$instance = new self;
 			}
 

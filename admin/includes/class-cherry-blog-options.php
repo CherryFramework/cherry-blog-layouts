@@ -26,9 +26,14 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 		 */
 		private static $instance = null;
 
+		/**
+		 * Sets up needed actions/filters for the class to initialize.
+		 *
+		 * @since 1.0.0
+		 */
 		public function __construct() {
 
-			add_filter( 'cherry_defaults_settings', array( $this, 'add_options') );
+			add_filter( 'cherry_defaults_settings', array( $this, 'add_options' ) );
 		}
 
 		/**
@@ -196,20 +201,20 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 					'title'			=> __( 'Timeline breakpoint date format', 'cherry-blog-layouts' ),
 					'label'			=> '',
 					'description'	=> __( 'Specify the date format.', 'cherry-blog-layouts' ),
-					'hint'			=>  array(
+					'hint'			=> array(
 						'type'		=> 'text',
-						'content'	=> __('More info <a href="https://codex.wordpress.org/Formatting_Date_and_Time">here</a> ', 'cherry-blog-layouts'),
+						'content'	=> __( 'More info <a href="https://codex.wordpress.org/Formatting_Date_and_Time">here</a>', 'cherry-blog-layouts' ),
 					),
 					'value'			=> 'F j, Y',
 				),
 				'blog-layout-show-marker-date' => array(
 					'type'			=> 'switcher',
-					'title'			=> __( "Enable marker's date label", 'cherry-blog-layouts' ),
+					'title'			=> __( 'Enable marker`s date label', 'cherry-blog-layouts' ),
 					'label'			=> '',
 					'description'	=> '',
 					'hint'			=> array(
 						'type'		=> 'text',
-						'content'	=> __( "Enable/disable marker's date label", 'cherry-blog-layouts' )
+						'content'	=> __( 'Enable/disable marker`s date label', 'cherry-blog-layouts' )
 					),
 					'value'			=> 'false',
 				),
@@ -218,9 +223,9 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 					'title'			=> __( 'Timeline marker date format', 'cherry-blog-layouts' ),
 					'label'			=> '',
 					'description'	=> __( 'Specify the date format.', 'cherry-blog-layouts' ),
-					'hint'			=>  array(
+					'hint'			=> array(
 						'type'		=> 'text',
-						'content'	=> __( 'More info <a href="https://codex.wordpress.org/Formatting_Date_and_Time">here</a> ', 'cherry-blog-layouts' ),
+						'content'	=> __( 'More info <a href="https://codex.wordpress.org/Formatting_Date_and_Time">here</a>', 'cherry-blog-layouts' ),
 					),
 					'value'			=> 'F j, Y',
 				),
@@ -285,7 +290,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 							'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-fullwidth.svg',
 						),
 					),
-				)
+				),
 			);
 
 			$menu_options = apply_filters( 'cherry_blog_layout_options', $layout_options );
@@ -310,7 +315,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 		public static function get_instance() {
 
 			// If the single instance hasn't been set, set it now.
-			if ( null == self::$instance ){
+			if ( null == self::$instance ) {
 				self::$instance = new self;
 			}
 

@@ -1,6 +1,12 @@
 <?php
 /**
- * Grid Layout type template
+ * Masonry layout type template.
+ *
+ * @package   Cherry_Blog_Layouts
+ * @author    Cherry Team
+ * @license   GPL-2.0+
+ * @link      http://www.cherryframework.com/
+ * @copyright 2015 Cherry Team
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	echo Cherry_Blog_Layouts_Data::filter_render( $parsed_options['filter_type'] ); ?>
 	<div class="masonry-wrapper">
 		<?php
+
 			while ( have_posts() ) : the_post();
 				$template_file = Cherry_Blog_Template_Loader::get_template( 'layout-masonry', 'content' );
 				include $template_file;

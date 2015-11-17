@@ -50,7 +50,9 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 		public static $is_custom_page = false;
 
 		/**
-		 * Constructor
+		 * Sets up needed actions/filters for the class to initialize.
+		 *
+		 * @since 1.0.0
 		 */
 		public function __construct() {
 
@@ -166,7 +168,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 				'is_category',
 				'is_tag',
 				'is_author',
-				'is_date'
+				'is_date',
 			);
 		}
 
@@ -230,13 +232,12 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 		public static function get_instance() {
 
 			// If the single instance hasn't been set, set it now.
-			if ( null == self::$instance ){
+			if ( null == self::$instance ) {
 				self::$instance = new self;
 			}
 
 			return self::$instance;
 		}
-
 	}
 
 	Cherry_Blog_Layouts::get_instance();
