@@ -24,16 +24,16 @@ if ( ! $format ) {
 
 switch ( $parsed_options['timeline_breakpoint'] ) {
 	case 'year':
-		$current_date = get_the_date('Y');
+		$current_date = get_the_date( 'Y' );
 		$date_format = 'Y';
 
 		break;
 	case 'month':
-		$current_date = get_the_date('F Y');
+		$current_date = get_the_date( 'F Y' );
 
 		break;
 	case 'day':
-		$current_date = get_the_date('d F Y');
+		$current_date = get_the_date( 'd F Y' );
 
 		break;
 }
@@ -41,8 +41,8 @@ switch ( $parsed_options['timeline_breakpoint'] ) {
 $current_date_format = get_the_date( $date_format );
 
 if ( 'true' === $parsed_options['use_timeline_breakpoint'] ) {
-	if( ! $break_point_date ) {?>
-		<div class="timeline-breakpiont"><?php echo $current_date_format ?></div><section class="timeline-group">
+	if ( ! $break_point_date ) {
+		?><div class="timeline-breakpiont"><?php echo $current_date_format ?></div><section class="timeline-group">
 		<?php $break_point_date = $current_date;
 	} elseif ( strtotime( $break_point_date ) > strtotime( $current_date ) ) {
 		?><div class="clear"></div></section><div class="timeline-breakpiont"><?php echo $current_date_format ?></div><section class="timeline-group"><?php
@@ -51,7 +51,7 @@ if ( 'true' === $parsed_options['use_timeline_breakpoint'] ) {
 	}
 }
 
-( $post_counter % 2 == 0 ) ? $even = ' odd' : $even = ' even';
+( 0 == $post_counter % 2 ) ? $even = ' odd' : $even = ' even';
 
 $break_index = apply_filters( 'cherry_blog_layout_timeline_break_index', 5 );
 

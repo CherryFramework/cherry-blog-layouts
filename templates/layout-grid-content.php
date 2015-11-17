@@ -41,12 +41,12 @@ switch ( $parsed_options['grid_column'] ) {
 		break;
 }
 
-if( $columns === $post_counter ) {
+if ( $columns === $post_counter ) {
 	?></div><?php
 	$post_counter = 0;
 }
 
-if( 0 === $post_counter ) {
+if ( 0 === $post_counter ) {
 	?><div class="row"><?php
 }
 

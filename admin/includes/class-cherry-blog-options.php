@@ -97,7 +97,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 					'title'			=> __( 'Use on pages', 'cherry-blog-layouts' ),
 					'label'			=> '',
 					'description'	=> '',
-					'hint'			=>  array(
+					'hint'			=> array(
 						'type'		=> 'text',
 						'content'	=> __( 'Please specify pages that will use custom blog layout.', 'cherry-blog-layouts' ),
 					),
@@ -214,7 +214,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Options' ) ) {
 					'description'	=> '',
 					'hint'			=> array(
 						'type'		=> 'text',
-						'content'	=> __( 'Enable/disable marker`s date label', 'cherry-blog-layouts' )
+						'content'	=> __( 'Enable/disable marker`s date label', 'cherry-blog-layouts' ),
 					),
 					'value'			=> 'false',
 				),

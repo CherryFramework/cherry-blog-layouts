@@ -75,7 +75,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 		 * Add blog layout shortcode to Cherry Shortcodes editor
 		 *
 		 * @since  1.0.0
-		 * @param  array  $shortcodes  already added shortcodes
+		 * @param  array $shortcodes already added shortcodes.
 		 * @return array
 		 */
 		public function add_to_editor( $shortcodes ) {
@@ -109,7 +109,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 							'type' => 'select',
 							'values' => array(
 								'desc' => __( 'Descending', 'cherry-blog-layouts' ),
-								'asc'  => __( 'Ascending', 'cherry-blog-layout' )
+								'asc'  => __( 'Ascending', 'cherry-blog-layout' ),
 							),
 							'default' => 'DESC',
 							'name' => __( 'Order', 'cherry-blog-layouts' ),
@@ -329,7 +329,7 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 							'taxonomy' => 'category',
 							'field'    => 'slug',
 							'terms'    => $cat,
-						)
+						),
 					);
 				}
 			} else {
@@ -337,10 +337,10 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 			}
 
 			if ( $atts['paged'] ) {
-				if ( get_query_var('paged') ) {
-					$query_args['paged'] = get_query_var('paged');
-				} elseif ( get_query_var('page') ) {
-					$query_args['paged'] = get_query_var('page');
+				if ( get_query_var( 'paged' ) ) {
+					$query_args['paged'] = get_query_var( 'paged' );
+				} elseif ( get_query_var( 'page' ) ) {
+					$query_args['paged'] = get_query_var( 'page' );
 				} else {
 					$query_args['paged'] = 1;
 				}

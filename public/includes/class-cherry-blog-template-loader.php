@@ -67,8 +67,8 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param string $slug template slug
-		 * @param string $name template unique name
+		 * @param string $slug template slug.
+		 * @param string $name template unique name.
 		 */
 		public static function get_template( $slug, $name = null ) {
 
@@ -111,8 +111,8 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param string $slug template slug
-		 * @param string $name template unique name
+		 * @param string $slug template slug.
+		 * @param string $name template unique name.
 		 */
 		public static function get_tmpl( $slug, $name = null ) {
 
@@ -153,7 +153,7 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 			}
 
 			if ( function_exists( 'cherry_do_content' ) ) {
-				$output = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $tmpl_content );
+				$output = preg_replace_callback( '/%%.+?%%/', 'cherry_do_content', $tmpl_content );
 			}
 
 			echo $output;
