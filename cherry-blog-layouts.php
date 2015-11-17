@@ -3,7 +3,7 @@
  * Plugin Name: Cherry Blog Layouts
  * Plugin URI:  http://www.cherryframework.com/
  * Description: Additional blog layouts.
- * Version:     1.0.5
+ * Version:     1.0.6
  * Author:      Cherry Team
  * Author URI:  http://www.cherryframework.com/
  * Text Domain: cherry-blog-layouts
@@ -13,12 +13,15 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // disable direct access
+	exit;
 }
 
 if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
+
 	/**
-	 * Main plugin class
+	 * Sets up and initializes the Cherry_Blog_Layouts plugin.
+	 *
+	 * @since 1.0.0
 	 */
 	class Cherry_Blog_Layouts {
 
@@ -50,10 +53,13 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
+
 			// Set the constants needed by the plugin.
 			$this->constants();
+
 			// Internationalize the text strings used.
 			add_action( 'plugins_loaded', array( $this, 'lang' ), 2 );
+
 			// Include necessary files
 			add_action( 'plugins_loaded', array( $this, '_public' ), 5 );
 			add_action( 'plugins_loaded', array( $this, '_admin' ),  5 );
@@ -66,13 +72,9 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 		 * Enqueue public assets
 		 */
 		public function public_assets() {
+
 			// css assets
 			wp_enqueue_style( 'cherry-blog-style', CHERRY_BLOG_URI . 'public/assets/css/style.css', array(), CHERRY_BLOG_VERSION );
-			// js assets
-			//wp_enqueue_script( 'imagesloaded', CHERRY_BLOG_URI . 'public/assets/js/imagesloaded.pkgd.js', array('jquery'), CHERRY_BLOG_VERSION, true );
-			//wp_enqueue_script( 'isotope', CHERRY_BLOG_URI . 'public/assets/js/isotope.pkgd.min.js', array('jquery'), CHERRY_BLOG_VERSION, true );
-			//wp_enqueue_script( 'cherry-api', CHERRY_BLOG_URI . 'public/assets/js/cherry-api.js', array('jquery'), CHERRY_BLOG_VERSION, true );
-			//wp_enqueue_script( 'cherry-blog-scripts', CHERRY_BLOG_URI . 'public/assets/js/init.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 		}
 
 		/**
@@ -81,12 +83,14 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 		 * @since 1.0.0
 		 */
 		public static function enqueue_scripts() {
+
 			// js assets
 			wp_enqueue_script( 'imagesloaded', CHERRY_BLOG_URI . 'public/assets/js/imagesloaded.pkgd.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 			wp_enqueue_script( 'isotope', CHERRY_BLOG_URI . 'public/assets/js/isotope.pkgd.min.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 			wp_enqueue_script( 'cherry-api', CHERRY_BLOG_URI . 'public/assets/js/cherry-api.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 			wp_enqueue_script( 'cherry-blog-scripts', CHERRY_BLOG_URI . 'public/assets/js/init.js', array('jquery'), CHERRY_BLOG_VERSION, true );
 		}
+
 		/**
 		 * Pass style handle to CSS compiler.
 		 *
@@ -95,16 +99,14 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 		 * @param array $handles CSS handles to compile.
 		 */
 		public function add_style_to_compiler( $handles ) {
-			$handles = array_merge(
-				array( 'cherry-blog-style' => CHERRY_BLOG_URI . 'public/assets/css/style.css' ),
-				$handles
-			);
+
+			$handles = array_merge( array( 'cherry-blog-style' => CHERRY_BLOG_URI . 'public/assets/css/style.css' ), $handles );
 
 			return $handles;
 		}
 
 		/**
-		 * Initialise translations
+		 * Initialise translations.
 		 *
 		 * @since 1.0.0
 		 */
@@ -124,7 +126,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 			 *
 			 * @since 1.0.0
 			 */
-			define( 'CHERRY_BLOG_VERSION', '1.0.5' );
+			define( 'CHERRY_BLOG_VERSION', '1.0.6' );
 
 			/**
 			 * Set the slug of the plugin.
@@ -150,7 +152,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 		}
 
 		/**
-		 * Get custom blog Layout conditionals array
+		 * Get custom blog Layout conditionals array.
 		 *
 		 * @since  1.0.0
 		 *
@@ -166,7 +168,6 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 				'is_author',
 				'is_date'
 			);
-
 		}
 
 		/**
@@ -195,18 +196,19 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 				$Cherry_Plugin_Update -> init( array(
 						'version'			=> CHERRY_BLOG_VERSION,
 						'slug'				=> CHERRY_BLOG_SLUG,
-						'repository_name'	=> CHERRY_BLOG_SLUG
+						'repository_name'	=> CHERRY_BLOG_SLUG,
 				));
 			}
 		}
 
 		/**
-		 * Get option from database by name
+		 * Get option from database by name.
 		 *
 		 * @since  1.0.0
 		 *
-		 * @param  string $name    option name to get
-		 * @param  mixed  $default default option value
+		 * @param  string $name    option name to get.
+		 * @param  mixed  $default default option value.
+		 * @return string|array $value Option value.
 		 */
 		public static function get_option( $name, $default = false ) {
 
@@ -228,11 +230,11 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 		public static function get_instance() {
 
 			// If the single instance hasn't been set, set it now.
-			if ( null == self::$instance )
+			if ( null == self::$instance ){
 				self::$instance = new self;
+			}
 
 			return self::$instance;
-
 		}
 
 	}

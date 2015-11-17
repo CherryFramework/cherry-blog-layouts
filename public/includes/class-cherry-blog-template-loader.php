@@ -15,6 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 
+	/**
+	 * Sets up and initializes the Cherry Blog template loader.
+	 *
+	 * @since 1.0.0
+	 */
 	class Cherry_Blog_Template_Loader {
 
 		/**
@@ -26,7 +31,7 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 		private static $instance = null;
 
 		/**
-		 * Temporary storage for main WP_Query during processing custom page template
+		 * Temporary storage for main WP_Query during processing custom page template.
 		 *
 		 * @since 1.0.0
 		 * @var   boolean
@@ -34,7 +39,7 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 		public static $temp_query = false;
 
 		/**
-		 * Store  custom templates in this property
+		 * Store  custom templates in this property.
 		 *
 		 * @since 1.0.0
 		 * @var   array
@@ -45,11 +50,10 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 
 			// Rewrite default blog templates
 			add_filter( 'template_include', array( $this, 'view_template' ), 1 );
-
 		}
 
 		/**
-		 * Return custom template path by name/slug
+		 * Return custom template path by name/slug.
 		 *
 		 * Searching priority:
 		 * yourtheme/blog-layouts/$name-$slug.php
@@ -88,11 +92,10 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 			}
 
 			return $template;
-
 		}
 
 		/**
-		 * Load custom tmpl file
+		 * Load custom tmpl file.
 		 *
 		 * Searching priority:
 		 * yourtheme/blog-layouts/$name-$slug.tmpl
@@ -108,7 +111,7 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 		 */
 		public static function get_tmpl( $slug, $name = null ) {
 
-			$template     = false;
+			$template = false;
 			$tmpl_content = '';
 
 			ob_start();
@@ -149,14 +152,20 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 			}
 
 			echo $output;
-
 		}
 
 		/**
-		 * Include specific layout template file
+		 * Include specific layout template file.
 		 *
 		 * @since  1.0.0
-		 * @param  string $template default template name
+		 * @param  string $template default template name.
+		 */
+		/**
+		 * Include specific layout template file.
+		 *
+		 * @since  1.0.0
+		 * @param  string $template Default template name.
+		 * @return string $template Updated template name.
 		 */
 		function view_template( $template ) {
 
@@ -168,15 +177,14 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 			}
 
 			return $template;
-
 		}
 
 		/**
-		 * Check if we need rewrite template for the blog and get it
+		 * Check if we need rewrite template for the blog and get it.
 		 *
 		 * @since  1.0.0
 		 *
-		 * @return bool|string  boolean false if no need to rewrite or template path
+		 * @return bool|string  boolean false if no need to rewrite or template path.
 		 */
 		public function get_blog_template() {
 
@@ -194,9 +202,11 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 			$rewrite_template = false;
 
 			foreach ( $conditionals as $conditional ) {
+
 				if ( in_array( $conditional, $allowed_pages ) && call_user_func( $conditional ) ) {
 					$rewrite_template = true;
 					Cherry_Blog_Layouts::$is_custom_layout = true;
+
 					break;
 				}
 			}
@@ -219,13 +229,12 @@ if ( ! class_exists( 'Cherry_Blog_Template_Loader' ) ) {
 		public static function get_instance() {
 
 			// If the single instance hasn't been set, set it now.
-			if ( null == self::$instance )
+			if ( null == self::$instance ){
 				self::$instance = new self;
+			}
 
 			return self::$instance;
-
 		}
-
 	}
 
 	Cherry_Blog_Template_Loader::get_instance();

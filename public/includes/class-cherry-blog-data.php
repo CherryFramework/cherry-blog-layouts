@@ -15,6 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 
+	/**
+	 * Sets up and initializes the Cherry_Blog_Layouts plugin.
+	 *
+	 * @since 1.0.0
+	 */
 	class Cherry_Blog_Layouts_Data {
 
 		/**
@@ -35,15 +40,23 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 		 */
 		private static $instance = null;
 
-		function __construct() {}
+		/**
+		 * Sets up and initializes the Blog Layout plugin.
+		 *
+		 * @since 1.0.0
+		 */
+		function __construct() {
 
-		public static function get_parsed_options( $options = '' ){
-			if( empty( self::$default_options ) ){
+			// init functionally
+		}
+
+		public static function get_parsed_options( $options = '' ) {
+			if ( empty( self::$default_options ) ) {
 				self::$default_options = array(
 					'enabled'							=> Cherry_Blog_Layouts::get_option( 'blog-layout-enabled', 'false' ),
 					'layout_type'						=> Cherry_Blog_Layouts::get_option( 'blog-layout-type', 'masonry' ),
 					'filter_type'						=> Cherry_Blog_Layouts::get_option( 'blog-layout-filter', 'categories' ),
-					'pages'								=> Cherry_Blog_Layouts::get_option( 'blog-layout-pages', array('is_home', 'is_post_type_archive', 'is_category', 'is_tag', 'is_author', 'is_date') ),
+					'pages'								=> Cherry_Blog_Layouts::get_option( 'blog-layout-pages', array( 'is_home', 'is_post_type_archive', 'is_category', 'is_tag', 'is_author', 'is_date' ) ),
 					'grid_column'						=> Cherry_Blog_Layouts::get_option( 'blog-layout-grid-column', 'grid-4' ),
 					'columns'							=> Cherry_Blog_Layouts::get_option( 'blog-layout-columns', 3 ),
 					'columns_gutter'					=> Cherry_Blog_Layouts::get_option( 'blog-layout-columns-gutter', 10 ),
@@ -68,40 +81,56 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 			}
 
 			$options = wp_parse_args( $options, self::$default_options );
-			if( is_array( $options ) && !empty( $options ) ){
+
+			if ( is_array( $options ) && ! empty( $options ) ) {
 				return $options;
 			}
 		}
 
+		/**
+		 * Render tax filters.
+		 *
+		 * @param  string $filter_type  Filter type(categories or tags).
+		 * @param  string $custom_class Custom class.
+		 * @return string               DOM result.
+		 */
 		public static function filter_render( $filter_type = 'categories', $custom_class = '' ) {
 			$html = '';
 
 			switch ( $filter_type ) {
 				case 'none':
 					$terms = null;
+
 					break;
 				case 'categories':
 					$terms = get_categories();
+
 					break;
 				case 'tags':
 					$terms = get_tags();
+
 					break;
 			}
-			if( isset( $terms ) ){
+			if ( isset( $terms ) ) {
 				$html .= '<ul class="taxonomy-filter ' . $custom_class . '">';
-					if( get_option( 'show_on_front' ) == 'page' ){
-						$all_terms = get_permalink( get_option('page_for_posts') );
-					}else{
-						$all_terms =get_bloginfo('url', 'display');
+
+					if ( 'page' == get_option( 'show_on_front' ) ) {
+						$all_terms = get_permalink( get_option( 'page_for_posts' ) );
+					} else {
+						$all_terms =get_bloginfo( 'url', 'display' );
 					}
+
 					$html .= '<li><a href="' . $all_terms . '/">' . apply_filters( 'cherry_blog_layout_all_terms_text', __('All', 'cherry-blog') ) .'</a></li>';
-						foreach( $terms as $term ){
+
+						foreach ( $terms as $term ) {
 							switch ( $filter_type ) {
 								case 'categories':
 									$term_permalink = get_category_link( $term->term_taxonomy_id );
+
 									break;
 								case 'tags':
 									$term_permalink = get_tag_link( $term->term_taxonomy_id );
+
 									break;
 							}
 							$html .= '<li><a href="' . $term_permalink . '">' . $term->name . '</a></li>';
@@ -112,7 +141,13 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 			return $html;
 		}
 
-		public static function setup_main_query( $posts_query = null ){
+		/**
+		 * Setup main query.
+		 *
+		 * @param  array|null $posts_query Current query.
+		 * @return void
+		 */
+		public static function setup_main_query( $posts_query = null ) {
 			global $wp_query;
 
 			self::$temp_query = $wp_query;
@@ -120,7 +155,12 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 			$wp_query = $posts_query;
 		}
 
-		public static function reset_main_query(){
+		/**
+		 * Reset main query.
+		 *
+		 * @return void
+		 */
+		public static function reset_main_query() {
 			global $wp_query;
 
 			$wp_query = NULL;
@@ -136,13 +176,12 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Data' ) ) {
 		public static function get_instance() {
 
 			// If the single instance hasn't been set, set it now.
-			if ( null == self::$instance )
+			if ( null == self::$instance ){
 				self::$instance = new self;
+			}
 
 			return self::$instance;
-
 		}
-
 	}
 
 	Cherry_Blog_Layouts_Data::get_instance();

@@ -15,6 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 
+	/**
+	 * Sets up and initializes the Cherry_Blog_Layouts tool set.
+	 *
+	 * @since 1.0.0
+	 */
 	class Cherry_Blog_Layouts_Tools {
 
 		/**
@@ -32,10 +37,10 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 		}
 
 		/**
-		 * Get item CSS class
+		 * Get item CSS class.
 		 *
 		 * @since  1.0.0
-		 * @param  array|string $classes passed user classes
+		 * @param  array|string $classes passed user classes.
 		 */
 		public static function item_class( $classes = array(), $grid = 'grid-3' ) {
 
@@ -50,6 +55,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 					$classes[] = 'col-md-' . 6;
 					$classes[] = 'col-sm-' . 6;
 					$classes[] = 'col-xs-' . 12;
+
 					break;
 				case 'grid-3':
 					$columns = 3;
@@ -57,6 +63,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 					$classes[] = 'col-md-' . 4;
 					$classes[] = 'col-sm-' . 6;
 					$classes[] = 'col-xs-' . 12;
+
 					break;
 				case 'grid-4':
 					$columns = 4;
@@ -64,6 +71,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 					$classes[] = 'col-md-' . 3;
 					$classes[] = 'col-sm-' . 6;
 					$classes[] = 'col-xs-' . 12;
+
 					break;
 				case 'grid-6':
 					$columns = 6;
@@ -71,6 +79,7 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 					$classes[] = 'col-md-' . 3;
 					$classes[] = 'col-sm-' . 6;
 					$classes[] = 'col-xs-' . 12;
+
 					break;
 			}
 
@@ -81,29 +90,29 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 
 
 		/**
-		 * Get additional wrapper classes
+		 * Get additional wrapper classes.
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param string $class default CSS class
-		 * @param string $type  layout type
+		 * @param string $class default CSS class.
+		 * @param string $type  layout type.
 		 */
 		public function wrapper_classes( $class, $type ) {
 
 			if ( 'timeline' !== $type ) {
-				$columns  = Cherry_Blog_Layouts::get_option( 'blog-layout-columns', 3 );
-				$class   .= ' columns-' . $columns;
+				$columns = Cherry_Blog_Layouts::get_option( 'blog-layout-columns', 3 );
+				$class .= ' columns-' . $columns;
 			}
 
 			return $class;
 		}
 
 		/**
-		 * Get additional wrapper attrs
+		 * Get additional wrapper attrs.
 		 *
 		 * @since 1.0.0
 		 *
-		 * @return string $attrs result inline attrs string
+		 * @return string $attrs result inline attrs string.
 		 */
 		public static function wrapper_attrs() {
 			$parsed_options = Cherry_Blog_Layouts_Data::get_parsed_options();
@@ -115,42 +124,51 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 			$grid_columns = $parsed_options['grid_column'];
 
 			$attrs = '';
+
 			switch ( $layout_type ) {
 				case 'grid':
 					switch ( $grid_columns ) {
 						case 'grid-2':
 							$columns = 2;
+
 							break;
 						case 'grid-3':
 							$columns = 3;
+
 							break;
 						case 'grid-4':
 							$columns = 4;
+
 							break;
 						case 'grid-6':
 							$columns = 6;
+
 							break;
 					}
 					$attrs .= 'data-columns="' . $columns . '"';
+
 					break;
 				case 'masonry':
 					$attrs .= 'data-columns="' . $columns . '"';
 					$attrs .= 'data-gutter="' . $columns_gutter . '"';
+
 					break;
 				case 'timeline':
 					$attrs .= 'data-timeline-item-width="' . $timeline_item_width . '"';
+
 					break;
 			}
+
 			return $attrs;
 		}
 
 		/**
-		 * Rewrite page layout for pages with custom blog
+		 * Rewrite page layout for pages with custom blog.
 		 *
 		 * @since  1.0.0
 		 *
-		 * @param  string $layout default layout
-		 * @return string         rewritten layout (if needed)
+		 * @param  string $layout default layout.
+		 * @return string         rewritten layout (if needed).
 		 */
 		public function rewrite_layout( $layout ) {
 
@@ -166,16 +184,15 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 			}
 
 			return $custom_layout;
-
 		}
 
 		/**
-		 * Rewrite page grid type for custom blog pages
+		 * Rewrite page grid type for custom blog pages.
 		 *
 		 * @since  1.0.0
 		 *
-		 * @param  array  $grid_type  default page grid type
-		 * @return array              rewritten grid type
+		 * @param  array  $grid_type  default page grid type.
+		 * @return array              rewritten grid type.
 		 */
 		public function rewrite_grid_type( $grid_type ) {
 
@@ -198,7 +215,6 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 			$grid_type['content'] = $content_grid;
 
 			return $grid_type;
-
 		}
 
 		/**
@@ -210,13 +226,12 @@ if ( ! class_exists( 'Cherry_Blog_Layouts_Tools' ) ) {
 		public static function get_instance() {
 
 			// If the single instance hasn't been set, set it now.
-			if ( null == self::$instance )
+			if ( null == self::$instance ){
 				self::$instance = new self;
+			}
 
 			return self::$instance;
-
 		}
-
 	}
 
 	Cherry_Blog_Layouts_Tools::get_instance();
