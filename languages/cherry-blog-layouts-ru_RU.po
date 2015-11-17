@@ -1,0 +1,456 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cherry-blog-layout\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-30 14:14+0200\n"
+"PO-Revision-Date: 2015-10-30 14:14+0200\n"
+"Last-Translator: J.L.Dokter <jldokter@gmail.com>\n"
+"Language-Team: Cherry Team <support@cherryframework.com>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_n_noop:1,2;_x:1,2c;_nx:1,2,4c;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/includes/class-cherry-blog-options.php:43
+msgid "Enable custom blog layout"
+msgstr "Включить пользовательскую разметку блога"
+
+#: admin/includes/class-cherry-blog-options.php:48
+msgid "Enable/disable custom blog layout"
+msgstr "Включить/Отключить пользовательскую разметку блога"
+
+#: admin/includes/class-cherry-blog-options.php:54
+#: public/includes/class-cherry-blog-shortcode.php:159
+msgid "Filter type"
+msgstr "Тип фильтра"
+
+#: admin/includes/class-cherry-blog-options.php:59
+msgid "Select if you want to filter posts by tag or by category"
+msgstr ""
+
+#: admin/includes/class-cherry-blog-options.php:64
+#: public/includes/class-cherry-blog-shortcode.php:143
+msgid "Grid"
+msgstr "Grid (Сетка)"
+
+#: admin/includes/class-cherry-blog-options.php:65
+#: public/includes/class-cherry-blog-shortcode.php:144
+msgid "Masonry"
+msgstr "Masonry (Каскадная сетка)"
+
+#: admin/includes/class-cherry-blog-options.php:66
+#: public/includes/class-cherry-blog-shortcode.php:145
+msgid "Timeline"
+msgstr "Timeline (Лента новостей)"
+
+#: admin/includes/class-cherry-blog-options.php:71
+msgid "Custom blog filter type"
+msgstr "Пользовательский тип фильтра блога"
+
+#: admin/includes/class-cherry-blog-options.php:76
+#: public/includes/class-cherry-blog-shortcode.php:160
+msgid "Select blog filter type"
+msgstr "Выберите тип фильтра блога"
+
+#: admin/includes/class-cherry-blog-options.php:81
+#: public/includes/class-cherry-blog-shortcode.php:112
+#: public/includes/class-cherry-blog-shortcode.php:154
+msgid "None"
+msgstr "Нет"
+
+#: admin/includes/class-cherry-blog-options.php:82
+#: public/includes/class-cherry-blog-shortcode.php:155
+msgid "Categories"
+msgstr "по категориям"
+
+#: admin/includes/class-cherry-blog-options.php:83
+#: public/includes/class-cherry-blog-shortcode.php:156
+msgid "Tags"
+msgstr "по тегам"
+
+#: admin/includes/class-cherry-blog-options.php:88
+msgid "Use on pages"
+msgstr "Использовать на страницах"
+
+#: admin/includes/class-cherry-blog-options.php:93
+msgid "Please specify pages that will use custom blog layout."
+msgstr ""
+"Выберите страницы, который будут использовать пользовательскую разметку блога"
+
+#: admin/includes/class-cherry-blog-options.php:105
+msgid "Blog page"
+msgstr "Страница блога"
+
+#: admin/includes/class-cherry-blog-options.php:106
+msgid "Custom Post type archive"
+msgstr "Архив пользовательских записей"
+
+#: admin/includes/class-cherry-blog-options.php:107
+msgid "Blog category archive"
+msgstr "Архив категорий блога"
+
+#: admin/includes/class-cherry-blog-options.php:108
+msgid "Blog tags archive"
+msgstr "Архив тегов блога"
+
+#: admin/includes/class-cherry-blog-options.php:109
+msgid "Author archive"
+msgstr "Архив автора"
+
+#: admin/includes/class-cherry-blog-options.php:110
+msgid "Date archive"
+msgstr "Архив даты"
+
+#: admin/includes/class-cherry-blog-options.php:115
+#: public/includes/class-cherry-blog-shortcode.php:171
+msgid "Grid columns"
+msgstr "Колонки сетки"
+
+#: admin/includes/class-cherry-blog-options.php:116
+#: public/includes/class-cherry-blog-shortcode.php:172
+msgid "Select grid layout pattern for pages with custom blog layout"
+msgstr ""
+"Выберите макет разметки сетки для страниц, использующих пользовательскую "
+"разметку блога."
+
+#: admin/includes/class-cherry-blog-options.php:121
+#: public/includes/class-cherry-blog-shortcode.php:165
+msgid "Grid 2"
+msgstr "Сетка 2"
+
+#: admin/includes/class-cherry-blog-options.php:125
+#: public/includes/class-cherry-blog-shortcode.php:166
+msgid "Grid 3"
+msgstr "Сетка 3"
+
+#: admin/includes/class-cherry-blog-options.php:129
+#: public/includes/class-cherry-blog-shortcode.php:167
+msgid "Grid 4"
+msgstr "Сетка 4"
+
+#: admin/includes/class-cherry-blog-options.php:133
+#: public/includes/class-cherry-blog-shortcode.php:168
+msgid "Grid 6"
+msgstr "Сетка 6"
+
+#: admin/includes/class-cherry-blog-options.php:140
+#: public/includes/class-cherry-blog-shortcode.php:180
+msgid "Masonry columns number"
+msgstr "Количество колонок каскадной сетки"
+
+#: admin/includes/class-cherry-blog-options.php:141
+#: public/includes/class-cherry-blog-shortcode.php:181
+msgid "Specify custom masonry layout columns number"
+msgstr "Укажите количество колонок пользовательской каскадной разметки"
+
+#: admin/includes/class-cherry-blog-options.php:148
+#: public/includes/class-cherry-blog-shortcode.php:189
+msgid "Masonry columns gutter"
+msgstr "Расстояние между колонками каскадной разметки"
+
+#: admin/includes/class-cherry-blog-options.php:149
+#: public/includes/class-cherry-blog-shortcode.php:190
+msgid "Specify custom masonry layout columns gutter(px)"
+msgstr ""
+"Укажите расстояние между колонками пользовательской каскадной разметки (px)"
+
+#: admin/includes/class-cherry-blog-options.php:156
+#: public/includes/class-cherry-blog-shortcode.php:198
+msgid "Timeline item width"
+msgstr "Ширина элемента ленты новостей"
+
+#: admin/includes/class-cherry-blog-options.php:157
+#: public/includes/class-cherry-blog-shortcode.php:199
+msgid "Specify custom item width for Timeline blog layout(%)"
+msgstr ""
+"Укажите пользовательскую ширину элемента для разметки ленты новостей блога "
+"(%)"
+
+#: admin/includes/class-cherry-blog-options.php:164
+#: public/includes/class-cherry-blog-shortcode.php:204
+msgid "Enable timeline breakpoints"
+msgstr "Отображать контрольную точку ленты новостей"
+
+#: admin/includes/class-cherry-blog-options.php:169
+#: public/includes/class-cherry-blog-shortcode.php:205
+msgid "Enable/disable timeline breakpoints"
+msgstr "Включить/Отключить контрольную точку ленты новостей"
+
+#: admin/includes/class-cherry-blog-options.php:175
+#: public/includes/class-cherry-blog-shortcode.php:215
+msgid "Timeline breakpoint"
+msgstr "Контрольная точка ленты новостей"
+
+#: admin/includes/class-cherry-blog-options.php:180
+#: public/includes/class-cherry-blog-shortcode.php:216
+msgid "Select timeline breakpoint type"
+msgstr "Выберите тип контрольной точки ленты новостей"
+
+#: admin/includes/class-cherry-blog-options.php:185
+#: public/includes/class-cherry-blog-shortcode.php:210
+msgid "Year"
+msgstr "Год"
+
+#: admin/includes/class-cherry-blog-options.php:186
+#: public/includes/class-cherry-blog-shortcode.php:211
+msgid "Month"
+msgstr "Месяц"
+
+#: admin/includes/class-cherry-blog-options.php:187
+#: public/includes/class-cherry-blog-shortcode.php:212
+msgid "Day"
+msgstr "День"
+
+#: admin/includes/class-cherry-blog-options.php:192
+#: public/includes/class-cherry-blog-shortcode.php:220
+msgid "Timeline breakpoint date format"
+msgstr "Формат даты контрольной точки ленты новостей"
+
+#: admin/includes/class-cherry-blog-options.php:197
+#: admin/includes/class-cherry-blog-options.php:219
+msgid ""
+"More info <a href=\"https://codex.wordpress.org/Formatting_Date_and_Time"
+"\">here</a> "
+msgstr ""
+"Более подробную информацию вы найдете <a href=\"https://codex.wordpress.org/"
+"Formatting_Date_and_Time\">здесь</a> "
+
+#: admin/includes/class-cherry-blog-options.php:203
+#: public/includes/class-cherry-blog-shortcode.php:226
+msgid "Enable marker's date label"
+msgstr "Отображать дату маркера"
+
+#: admin/includes/class-cherry-blog-options.php:208
+#: public/includes/class-cherry-blog-shortcode.php:227
+msgid "Enable/disable marker's date label"
+msgstr "Включить/Отключить дату маркера"
+
+#: admin/includes/class-cherry-blog-options.php:214
+#: public/includes/class-cherry-blog-shortcode.php:231
+msgid "Timeline marker date format"
+msgstr "Формат даты маркера ленты новостей"
+
+#: admin/includes/class-cherry-blog-options.php:225
+msgid "Grid type"
+msgstr "Тип сетки"
+
+#: admin/includes/class-cherry-blog-options.php:226
+msgid ""
+"Select layout pattern for pages with custom blog layout. Wide layout will "
+"fit window width. Boxed layout will have fixed width."
+msgstr ""
+"Выберите макет разметки для страниц, использующих пользовательскую разметку "
+"блога."
+
+#: admin/includes/class-cherry-blog-options.php:231
+#: admin/includes/class-cherry-blog-options.php:256
+msgid "Inherit"
+msgstr "Унаследованный"
+
+#: admin/includes/class-cherry-blog-options.php:235
+msgid "Wide"
+msgstr "Широкий"
+
+#: admin/includes/class-cherry-blog-options.php:239
+msgid "Boxed"
+msgstr "Блочный"
+
+#: admin/includes/class-cherry-blog-options.php:246
+msgid "Custom Blog sidebars"
+msgstr "Пользовательские боковые колонки блога"
+
+#: admin/includes/class-cherry-blog-options.php:250
+msgid ""
+"You can choose if you want to display sidebars and how you want to display "
+"them."
+msgstr ""
+"Выберите тип разметки страницы блога в зависимости от того, хотите ли вы "
+"отображать боковые колонки и в каком виде."
+
+#: admin/includes/class-cherry-blog-options.php:260
+msgid "Left sidebar"
+msgstr "Левая боковая колонка"
+
+#: admin/includes/class-cherry-blog-options.php:264
+msgid "Right sidebar"
+msgstr "Правая боковая колонка"
+
+#: admin/includes/class-cherry-blog-options.php:268
+msgid "Left and right sidebar"
+msgstr "Левая и правая боковые колонки"
+
+#: admin/includes/class-cherry-blog-options.php:272
+msgid "Two sidebars on the left"
+msgstr "Две боковые колонки слева"
+
+#: admin/includes/class-cherry-blog-options.php:276
+msgid "Two sidebars on the right"
+msgstr "Две боковые колонки справа"
+
+#: admin/includes/class-cherry-blog-options.php:280
+msgid "No sidebar"
+msgstr "Без боковых колонок"
+
+#: admin/includes/class-cherry-blog-options.php:290
+msgid "Blog layout"
+msgstr "Разметка блога"
+
+#: public/includes/class-cherry-blog-data.php:97
+msgid "All"
+msgstr "Все"
+
+#: public/includes/class-cherry-blog-shortcode.php:85
+msgid "Blog Layout"
+msgstr "Разметка блога"
+
+#: public/includes/class-cherry-blog-shortcode.php:86
+msgid "Cherry blog layout shortcode"
+msgstr "Cherry шорткоды разметки блога "
+
+#: public/includes/class-cherry-blog-shortcode.php:96
+msgid "Limit"
+msgstr "Ограничение"
+
+#: public/includes/class-cherry-blog-shortcode.php:97
+msgid "Maximum number of posts."
+msgstr "Максимальное количество записей."
+
+#: public/includes/class-cherry-blog-shortcode.php:102
+msgid "Descending"
+msgstr "Убывающий"
+
+#: public/includes/class-cherry-blog-shortcode.php:103
+msgid "Ascending"
+msgstr "Возрастающий"
+
+#: public/includes/class-cherry-blog-shortcode.php:106
+msgid "Order"
+msgstr "Порядок"
+
+#: public/includes/class-cherry-blog-shortcode.php:107
+msgid "Posts order"
+msgstr "Порядок отображения записей"
+
+#: public/includes/class-cherry-blog-shortcode.php:113
+msgid "Post ID"
+msgstr "ID записи"
+
+#: public/includes/class-cherry-blog-shortcode.php:114
+msgid "Post author"
+msgstr "Автор записи"
+
+#: public/includes/class-cherry-blog-shortcode.php:115
+msgid "Post title"
+msgstr "Заголовок записи"
+
+#: public/includes/class-cherry-blog-shortcode.php:116
+msgid "Post slug"
+msgstr "Заголовок для URL-адреса записи"
+
+#: public/includes/class-cherry-blog-shortcode.php:117
+msgid "Date"
+msgstr "Дата"
+
+#: public/includes/class-cherry-blog-shortcode.php:118
+msgid "Last modified date"
+msgstr "Дата последнего редактирования"
+
+#: public/includes/class-cherry-blog-shortcode.php:119
+msgid "Random"
+msgstr "Произвольно"
+
+#: public/includes/class-cherry-blog-shortcode.php:120
+msgid "Comments number"
+msgstr "Количество комментарий"
+
+#: public/includes/class-cherry-blog-shortcode.php:123
+msgid "Order by"
+msgstr "Упорядочить по"
+
+#: public/includes/class-cherry-blog-shortcode.php:124
+msgid "Order posts by"
+msgstr "Упорядочить записи по"
+
+#: public/includes/class-cherry-blog-shortcode.php:131
+msgid "Category"
+msgstr "Категория"
+
+#: public/includes/class-cherry-blog-shortcode.php:132
+msgid "Select categories to show posts from"
+msgstr "Выберите категорию, из которой будут отображаться записи"
+
+#: public/includes/class-cherry-blog-shortcode.php:137
+msgid "Show pages"
+msgstr ""
+
+#: public/includes/class-cherry-blog-shortcode.php:138
+msgid "Show page navigation or not"
+msgstr ""
+
+#: public/includes/class-cherry-blog-shortcode.php:148
+msgid "Layout"
+msgstr "Разметка"
+
+#: public/includes/class-cherry-blog-shortcode.php:149
+msgid "Select output layout format"
+msgstr "Выберите формат разметки вывода"
+
+#: public/includes/class-cherry-blog-shortcode.php:221
+#: public/includes/class-cherry-blog-shortcode.php:232
+msgid "Specify date format"
+msgstr ""
+
+#: public/includes/class-cherry-blog-shortcode.php:236
+msgid "Prev button label"
+msgstr "Текст кнопки &quot;Назад&quot;"
+
+#: public/includes/class-cherry-blog-shortcode.php:237
+msgid "Previous button label text. Text or HTML can be used."
+msgstr ""
+"Текст кнопки &quot;Назад&quot;. Можно использовать обычный текст или HTML "
+"код."
+
+#: public/includes/class-cherry-blog-shortcode.php:241
+msgid "Next button label"
+msgstr "Текст кнопки &quot;Вперед&quot;"
+
+#: public/includes/class-cherry-blog-shortcode.php:242
+msgid "Next button label text. Text or HTML can be used."
+msgstr ""
+"Текст кнопки &quot;Вперед&quot;. Можно использовать обычный текст или HTML "
+"код."
+
+#: public/includes/class-cherry-blog-shortcode.php:246
+msgid "Class"
+msgstr "Класс"
+
+#: public/includes/class-cherry-blog-shortcode.php:247
+msgid "Extra CSS class"
+msgstr "Дополнительный CSS класс"
+
+#: public/includes/class-cherry-blog-shortcode.php:368
+msgid "No posts found"
+msgstr "Записи не найдены"
+
+#~ msgid "Select if you want to folter posts by tag or by category"
+#~ msgstr ""
+#~ "Выберите данную опцию, если хотите фильтровать записи по тегам или по "
+#~ "категориям"
+
+#~ msgid "Show pager"
+#~ msgstr "Отображать постраничную навигацию"
+
+#~ msgid "Show paged navigation or not"
+#~ msgstr "Включить/Отключить постраничную навигацию"
+
+#~ msgid "Specify the date format"
+#~ msgstr "Укажите формат даты"
