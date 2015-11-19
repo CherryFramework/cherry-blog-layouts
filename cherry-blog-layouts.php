@@ -92,10 +92,10 @@ if ( ! class_exists( 'Cherry_Blog_Layouts' ) ) {
 		public static function enqueue_scripts() {
 
 			// js assets
-			wp_enqueue_script( 'imagesloaded', CHERRY_BLOG_URI . 'public/assets/js/imagesloaded.pkgd.js', array( 'jquery' ), CHERRY_BLOG_VERSION, true );
-			wp_enqueue_script( 'isotope', CHERRY_BLOG_URI . 'public/assets/js/isotope.pkgd.min.js', array( 'jquery' ), CHERRY_BLOG_VERSION, true );
-			wp_enqueue_script( 'cherry-api', CHERRY_BLOG_URI . 'public/assets/js/cherry-api.js', array( 'jquery' ), CHERRY_BLOG_VERSION, true );
-			wp_enqueue_script( 'cherry-blog-scripts', CHERRY_BLOG_URI . 'public/assets/js/init.js', array( 'jquery' ), CHERRY_BLOG_VERSION, true );
+			wp_enqueue_script( 'imagesloaded', CHERRY_BLOG_URI . 'public/assets/js/min/imagesloaded.pkgd.min.js', array( 'jquery' ), CHERRY_BLOG_VERSION, true );
+			wp_enqueue_script( 'isotope', CHERRY_BLOG_URI . 'public/assets/js/min/isotope.pkgd.min.js', array( 'jquery' ), CHERRY_BLOG_VERSION, true );
+			wp_enqueue_script( 'cherry-api', CHERRY_BLOG_URI . 'public/assets/js/min/cherry-api.min.js', array( 'jquery' ), CHERRY_BLOG_VERSION, true );
+			wp_enqueue_script( 'cherry-blog-scripts', CHERRY_BLOG_URI . 'public/assets/js/min/init.min.js', array( 'jquery' ), CHERRY_BLOG_VERSION, true );
 		}
 
 		/**
