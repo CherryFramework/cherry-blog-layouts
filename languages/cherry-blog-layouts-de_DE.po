@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cherry-blog-layout\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-30 14:14+0200\n"
-"PO-Revision-Date: 2015-10-30 14:14+0200\n"
+"POT-Creation-Date: 2015-12-11 14:03+0200\n"
+"PO-Revision-Date: 2015-12-11 14:03+0200\n"
 "Last-Translator: J.L.Dokter <jldokter@gmail.com>\n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
 "Language: de_DE\n"
@@ -14,231 +14,234 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _e;__;_n:1,2;_n_noop:1,2;_x:1,2c;_nx:1,2,4c;"
-"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
-"esc_html_x:1,2c\n"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;"
+"esc_html_e;esc_html_x:1,2c\n"
 "X-Textdomain-Support: yes\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/includes/class-cherry-blog-options.php:43
+#: admin/includes/class-cherry-blog-options.php:52
 msgid "Enable custom blog layout"
 msgstr "Eigenes Blog-Layout aktivieren"
 
-#: admin/includes/class-cherry-blog-options.php:48
+#: admin/includes/class-cherry-blog-options.php:57
 msgid "Enable/disable custom blog layout"
 msgstr "Eigenes Blog-Layout aktivieren/deaktivieren"
 
-#: admin/includes/class-cherry-blog-options.php:54
-#: public/includes/class-cherry-blog-shortcode.php:159
+#: admin/includes/class-cherry-blog-options.php:63
+#: public/includes/class-cherry-blog-shortcode.php:168
 msgid "Filter type"
 msgstr "Filtertyp"
 
-#: admin/includes/class-cherry-blog-options.php:59
+#: admin/includes/class-cherry-blog-options.php:68
 msgid "Select if you want to filter posts by tag or by category"
 msgstr ""
+"Wählen Sie, wie Sie die Beiträge filtern möchten,nach Tag oder nach "
+"Kategorie."
 
-#: admin/includes/class-cherry-blog-options.php:64
-#: public/includes/class-cherry-blog-shortcode.php:143
+#: admin/includes/class-cherry-blog-options.php:73
+#: public/includes/class-cherry-blog-shortcode.php:152
 msgid "Grid"
 msgstr "Raster"
 
-#: admin/includes/class-cherry-blog-options.php:65
-#: public/includes/class-cherry-blog-shortcode.php:144
+#: admin/includes/class-cherry-blog-options.php:74
+#: public/includes/class-cherry-blog-shortcode.php:153
 msgid "Masonry"
 msgstr "Masonry"
 
-#: admin/includes/class-cherry-blog-options.php:66
-#: public/includes/class-cherry-blog-shortcode.php:145
+#: admin/includes/class-cherry-blog-options.php:75
+#: public/includes/class-cherry-blog-shortcode.php:154
 msgid "Timeline"
 msgstr "Timeline"
 
-#: admin/includes/class-cherry-blog-options.php:71
+#: admin/includes/class-cherry-blog-options.php:80
 msgid "Custom blog filter type"
 msgstr "Eigener Filtertyp des Blogs"
 
-#: admin/includes/class-cherry-blog-options.php:76
-#: public/includes/class-cherry-blog-shortcode.php:160
+#: admin/includes/class-cherry-blog-options.php:85
+#: public/includes/class-cherry-blog-shortcode.php:169
 msgid "Select blog filter type"
 msgstr "Filtertyp des Blogs wählen"
 
-#: admin/includes/class-cherry-blog-options.php:81
-#: public/includes/class-cherry-blog-shortcode.php:112
-#: public/includes/class-cherry-blog-shortcode.php:154
+#: admin/includes/class-cherry-blog-options.php:90
+#: public/includes/class-cherry-blog-shortcode.php:121
+#: public/includes/class-cherry-blog-shortcode.php:163
 msgid "None"
 msgstr "Kein"
 
-#: admin/includes/class-cherry-blog-options.php:82
-#: public/includes/class-cherry-blog-shortcode.php:155
+#: admin/includes/class-cherry-blog-options.php:91
+#: public/includes/class-cherry-blog-shortcode.php:164
 msgid "Categories"
 msgstr "Kategorien"
 
-#: admin/includes/class-cherry-blog-options.php:83
-#: public/includes/class-cherry-blog-shortcode.php:156
+#: admin/includes/class-cherry-blog-options.php:92
+#: public/includes/class-cherry-blog-shortcode.php:165
 msgid "Tags"
 msgstr "Schlagwörter"
 
-#: admin/includes/class-cherry-blog-options.php:88
+#: admin/includes/class-cherry-blog-options.php:97
 msgid "Use on pages"
 msgstr "Verwenden Sie auf den Seiten"
 
-#: admin/includes/class-cherry-blog-options.php:93
+#: admin/includes/class-cherry-blog-options.php:102
 msgid "Please specify pages that will use custom blog layout."
 msgstr ""
 "Geben Sie bitte die Seiten an, die Ihr eigenes Layout verwenden werden."
 
-#: admin/includes/class-cherry-blog-options.php:105
+#: admin/includes/class-cherry-blog-options.php:114
 msgid "Blog page"
 msgstr "Blogseite"
 
-#: admin/includes/class-cherry-blog-options.php:106
+#: admin/includes/class-cherry-blog-options.php:115
 msgid "Custom Post type archive"
 msgstr "Archiv des eigenen Beitragtyps"
 
-#: admin/includes/class-cherry-blog-options.php:107
+#: admin/includes/class-cherry-blog-options.php:116
 msgid "Blog category archive"
 msgstr "Archiv der Blogkategorie"
 
-#: admin/includes/class-cherry-blog-options.php:108
+#: admin/includes/class-cherry-blog-options.php:117
 msgid "Blog tags archive"
 msgstr "Archiv der Blog-Schlagwörter"
 
-#: admin/includes/class-cherry-blog-options.php:109
+#: admin/includes/class-cherry-blog-options.php:118
 msgid "Author archive"
 msgstr "Autorenarchiv"
 
-#: admin/includes/class-cherry-blog-options.php:110
+#: admin/includes/class-cherry-blog-options.php:119
 msgid "Date archive"
 msgstr "Datenarchiv"
 
-#: admin/includes/class-cherry-blog-options.php:115
-#: public/includes/class-cherry-blog-shortcode.php:171
+#: admin/includes/class-cherry-blog-options.php:124
+#: public/includes/class-cherry-blog-shortcode.php:180
 msgid "Grid columns"
 msgstr "Rasterspalten"
 
-#: admin/includes/class-cherry-blog-options.php:116
-#: public/includes/class-cherry-blog-shortcode.php:172
+#: admin/includes/class-cherry-blog-options.php:125
+#: public/includes/class-cherry-blog-shortcode.php:181
 msgid "Select grid layout pattern for pages with custom blog layout"
 msgstr "Wählen Sie Layout-Vorlage für Seiten mit eigenem Blog-Layout"
 
-#: admin/includes/class-cherry-blog-options.php:121
-#: public/includes/class-cherry-blog-shortcode.php:165
+#: admin/includes/class-cherry-blog-options.php:130
+#: public/includes/class-cherry-blog-shortcode.php:174
 msgid "Grid 2"
 msgstr "Raster 2"
 
-#: admin/includes/class-cherry-blog-options.php:125
-#: public/includes/class-cherry-blog-shortcode.php:166
+#: admin/includes/class-cherry-blog-options.php:134
+#: public/includes/class-cherry-blog-shortcode.php:175
 msgid "Grid 3"
 msgstr "Raster 3"
 
-#: admin/includes/class-cherry-blog-options.php:129
-#: public/includes/class-cherry-blog-shortcode.php:167
+#: admin/includes/class-cherry-blog-options.php:138
+#: public/includes/class-cherry-blog-shortcode.php:176
 msgid "Grid 4"
 msgstr "Raster 4"
 
-#: admin/includes/class-cherry-blog-options.php:133
-#: public/includes/class-cherry-blog-shortcode.php:168
+#: admin/includes/class-cherry-blog-options.php:142
+#: public/includes/class-cherry-blog-shortcode.php:177
 msgid "Grid 6"
 msgstr "Raster 6"
 
-#: admin/includes/class-cherry-blog-options.php:140
-#: public/includes/class-cherry-blog-shortcode.php:180
+#: admin/includes/class-cherry-blog-options.php:149
+#: public/includes/class-cherry-blog-shortcode.php:189
 msgid "Masonry columns number"
 msgstr "Masonry-Spaltenanzahl"
 
-#: admin/includes/class-cherry-blog-options.php:141
-#: public/includes/class-cherry-blog-shortcode.php:181
+#: admin/includes/class-cherry-blog-options.php:150
+#: public/includes/class-cherry-blog-shortcode.php:190
 msgid "Specify custom masonry layout columns number"
 msgstr "Geben Sie eigene Masonry-Layoutsspaltenanzahl an"
 
-#: admin/includes/class-cherry-blog-options.php:148
-#: public/includes/class-cherry-blog-shortcode.php:189
+#: admin/includes/class-cherry-blog-options.php:157
+#: public/includes/class-cherry-blog-shortcode.php:198
 msgid "Masonry columns gutter"
 msgstr "Masonry-Spaltenrinne"
 
-#: admin/includes/class-cherry-blog-options.php:149
-#: public/includes/class-cherry-blog-shortcode.php:190
+#: admin/includes/class-cherry-blog-options.php:158
+#: public/includes/class-cherry-blog-shortcode.php:199
 msgid "Specify custom masonry layout columns gutter(px)"
 msgstr "Geben Sie Ihre eigene Masonry-Spaltenrinne(px) an"
 
-#: admin/includes/class-cherry-blog-options.php:156
-#: public/includes/class-cherry-blog-shortcode.php:198
+#: admin/includes/class-cherry-blog-options.php:165
+#: public/includes/class-cherry-blog-shortcode.php:207
 msgid "Timeline item width"
 msgstr "Timeline-Breite"
 
-#: admin/includes/class-cherry-blog-options.php:157
-#: public/includes/class-cherry-blog-shortcode.php:199
+#: admin/includes/class-cherry-blog-options.php:166
+#: public/includes/class-cherry-blog-shortcode.php:208
 msgid "Specify custom item width for Timeline blog layout(%)"
 msgstr "Geben Sie Ihre eigene Elementbreite an"
 
-#: admin/includes/class-cherry-blog-options.php:164
-#: public/includes/class-cherry-blog-shortcode.php:204
+#: admin/includes/class-cherry-blog-options.php:173
+#: public/includes/class-cherry-blog-shortcode.php:213
 msgid "Enable timeline breakpoints"
 msgstr "Timeline-Haltepunkte aktivieren"
 
-#: admin/includes/class-cherry-blog-options.php:169
-#: public/includes/class-cherry-blog-shortcode.php:205
+#: admin/includes/class-cherry-blog-options.php:178
+#: public/includes/class-cherry-blog-shortcode.php:214
 msgid "Enable/disable timeline breakpoints"
 msgstr "Timeline-Haltepunkte aktivieren/deaktivieren"
 
-#: admin/includes/class-cherry-blog-options.php:175
-#: public/includes/class-cherry-blog-shortcode.php:215
+#: admin/includes/class-cherry-blog-options.php:184
+#: public/includes/class-cherry-blog-shortcode.php:224
 msgid "Timeline breakpoint"
 msgstr "Timeline-Haltepunkt"
 
-#: admin/includes/class-cherry-blog-options.php:180
-#: public/includes/class-cherry-blog-shortcode.php:216
+#: admin/includes/class-cherry-blog-options.php:189
+#: public/includes/class-cherry-blog-shortcode.php:225
 msgid "Select timeline breakpoint type"
 msgstr "Typ des Timeline-Haltepunkts wählen"
 
-#: admin/includes/class-cherry-blog-options.php:185
-#: public/includes/class-cherry-blog-shortcode.php:210
+#: admin/includes/class-cherry-blog-options.php:194
+#: public/includes/class-cherry-blog-shortcode.php:219
 msgid "Year"
 msgstr "Jahr"
 
-#: admin/includes/class-cherry-blog-options.php:186
-#: public/includes/class-cherry-blog-shortcode.php:211
+#: admin/includes/class-cherry-blog-options.php:195
+#: public/includes/class-cherry-blog-shortcode.php:220
 msgid "Month"
 msgstr "Monat"
 
-#: admin/includes/class-cherry-blog-options.php:187
-#: public/includes/class-cherry-blog-shortcode.php:212
+#: admin/includes/class-cherry-blog-options.php:196
+#: public/includes/class-cherry-blog-shortcode.php:221
 msgid "Day"
 msgstr "Tag"
 
-#: admin/includes/class-cherry-blog-options.php:192
-#: public/includes/class-cherry-blog-shortcode.php:220
+#: admin/includes/class-cherry-blog-options.php:201
+#: public/includes/class-cherry-blog-shortcode.php:229
 msgid "Timeline breakpoint date format"
 msgstr "Datumformat des Timeline-Haltepunkts"
 
-#: admin/includes/class-cherry-blog-options.php:197
-#: admin/includes/class-cherry-blog-options.php:219
+#: admin/includes/class-cherry-blog-options.php:203
+#: admin/includes/class-cherry-blog-options.php:225
+msgid "Specify the date format."
+msgstr ""
+
+#: admin/includes/class-cherry-blog-options.php:206
+#: admin/includes/class-cherry-blog-options.php:228
 msgid ""
 "More info <a href=\"https://codex.wordpress.org/Formatting_Date_and_Time"
-"\">here</a> "
+"\">here</a>"
 msgstr ""
-"Mehr Info <a href=\"https://codex.wordpress.org/Formatting_Date_and_Time"
-"\">hier</a>"
 
-#: admin/includes/class-cherry-blog-options.php:203
-#: public/includes/class-cherry-blog-shortcode.php:226
-msgid "Enable marker's date label"
-msgstr "Datumbezeichnung des Markers aktivieren"
+#: admin/includes/class-cherry-blog-options.php:212
+msgid "Enable marker`s date label"
+msgstr ""
 
-#: admin/includes/class-cherry-blog-options.php:208
-#: public/includes/class-cherry-blog-shortcode.php:227
-msgid "Enable/disable marker's date label"
-msgstr "Datumbezeichnung des Markers aktivieren/deaktivieren"
+#: admin/includes/class-cherry-blog-options.php:217
+msgid "Enable/disable marker`s date label"
+msgstr ""
 
-#: admin/includes/class-cherry-blog-options.php:214
-#: public/includes/class-cherry-blog-shortcode.php:231
+#: admin/includes/class-cherry-blog-options.php:223
+#: public/includes/class-cherry-blog-shortcode.php:240
 msgid "Timeline marker date format"
 msgstr "Datumformat des Timeline-Markers"
 
-#: admin/includes/class-cherry-blog-options.php:225
+#: admin/includes/class-cherry-blog-options.php:234
 msgid "Grid type"
 msgstr "Gridtyp"
 
-#: admin/includes/class-cherry-blog-options.php:226
+#: admin/includes/class-cherry-blog-options.php:235
 msgid ""
 "Select layout pattern for pages with custom blog layout. Wide layout will "
 "fit window width. Boxed layout will have fixed width."
@@ -246,24 +249,24 @@ msgstr ""
 "Layout-Vorlage für Seiten mit eigenem Blog-Layout. Breites Layout wird "
 "Fensterbreite einpassen. Boxed Layout wird fixierte Breite haben."
 
-#: admin/includes/class-cherry-blog-options.php:231
-#: admin/includes/class-cherry-blog-options.php:256
+#: admin/includes/class-cherry-blog-options.php:240
+#: admin/includes/class-cherry-blog-options.php:265
 msgid "Inherit"
 msgstr "Vererben"
 
-#: admin/includes/class-cherry-blog-options.php:235
+#: admin/includes/class-cherry-blog-options.php:244
 msgid "Wide"
 msgstr "Breit"
 
-#: admin/includes/class-cherry-blog-options.php:239
+#: admin/includes/class-cherry-blog-options.php:248
 msgid "Boxed"
 msgstr "Boxed"
 
-#: admin/includes/class-cherry-blog-options.php:246
+#: admin/includes/class-cherry-blog-options.php:255
 msgid "Custom Blog sidebars"
 msgstr "Eigene Blog-Seitenleisten."
 
-#: admin/includes/class-cherry-blog-options.php:250
+#: admin/includes/class-cherry-blog-options.php:259
 msgid ""
 "You can choose if you want to display sidebars and how you want to display "
 "them."
@@ -271,168 +274,183 @@ msgstr ""
 "Sie können wählen, ob Sie Seitenleisten anzeigen möchten und wie Sie diese "
 "anzeigen möchten. "
 
-#: admin/includes/class-cherry-blog-options.php:260
+#: admin/includes/class-cherry-blog-options.php:269
 msgid "Left sidebar"
 msgstr "Linke Seitenleiste"
 
-#: admin/includes/class-cherry-blog-options.php:264
+#: admin/includes/class-cherry-blog-options.php:273
 msgid "Right sidebar"
 msgstr "Rechte Seitenleiste"
 
-#: admin/includes/class-cherry-blog-options.php:268
+#: admin/includes/class-cherry-blog-options.php:277
 msgid "Left and right sidebar"
 msgstr "Linke und rechte Seitenleiste"
 
-#: admin/includes/class-cherry-blog-options.php:272
+#: admin/includes/class-cherry-blog-options.php:281
 msgid "Two sidebars on the left"
 msgstr "Zwei Seitenleisten links"
 
-#: admin/includes/class-cherry-blog-options.php:276
+#: admin/includes/class-cherry-blog-options.php:285
 msgid "Two sidebars on the right"
 msgstr "Zwei Seitenleisten rechts"
 
-#: admin/includes/class-cherry-blog-options.php:280
+#: admin/includes/class-cherry-blog-options.php:289
 msgid "No sidebar"
 msgstr "Keine Seitenleiste"
 
-#: admin/includes/class-cherry-blog-options.php:290
+#: admin/includes/class-cherry-blog-options.php:299
 msgid "Blog layout"
 msgstr "Blog-Layout"
 
-#: public/includes/class-cherry-blog-data.php:97
+#: public/includes/class-cherry-blog-data.php:135
 msgid "All"
 msgstr "Alle"
 
-#: public/includes/class-cherry-blog-shortcode.php:85
+#: public/includes/class-cherry-blog-shortcode.php:94
 msgid "Blog Layout"
 msgstr "Blog-Layout"
 
-#: public/includes/class-cherry-blog-shortcode.php:86
+#: public/includes/class-cherry-blog-shortcode.php:95
 msgid "Cherry blog layout shortcode"
 msgstr "Kirscher Blog-Layout-Shortcode"
 
-#: public/includes/class-cherry-blog-shortcode.php:96
+#: public/includes/class-cherry-blog-shortcode.php:105
 msgid "Limit"
 msgstr "Limit"
 
-#: public/includes/class-cherry-blog-shortcode.php:97
+#: public/includes/class-cherry-blog-shortcode.php:106
 msgid "Maximum number of posts."
 msgstr "Maximale Beitragsanzahl"
 
-#: public/includes/class-cherry-blog-shortcode.php:102
+#: public/includes/class-cherry-blog-shortcode.php:111
 msgid "Descending"
 msgstr "Absteigend"
 
-#: public/includes/class-cherry-blog-shortcode.php:103
+#: public/includes/class-cherry-blog-shortcode.php:112
 msgid "Ascending"
 msgstr "Aufsteigend"
 
-#: public/includes/class-cherry-blog-shortcode.php:106
+#: public/includes/class-cherry-blog-shortcode.php:115
 msgid "Order"
 msgstr "Rheinfolge"
 
-#: public/includes/class-cherry-blog-shortcode.php:107
+#: public/includes/class-cherry-blog-shortcode.php:116
 msgid "Posts order"
 msgstr "Rheinfolge der Beiträge"
 
-#: public/includes/class-cherry-blog-shortcode.php:113
+#: public/includes/class-cherry-blog-shortcode.php:122
 msgid "Post ID"
 msgstr "Beitrags-ID"
 
-#: public/includes/class-cherry-blog-shortcode.php:114
+#: public/includes/class-cherry-blog-shortcode.php:123
 msgid "Post author"
 msgstr "Beitragsautor"
 
-#: public/includes/class-cherry-blog-shortcode.php:115
+#: public/includes/class-cherry-blog-shortcode.php:124
 msgid "Post title"
 msgstr "Beitragstitel"
 
-#: public/includes/class-cherry-blog-shortcode.php:116
+#: public/includes/class-cherry-blog-shortcode.php:125
 msgid "Post slug"
 msgstr "Beitragsslug"
 
-#: public/includes/class-cherry-blog-shortcode.php:117
+#: public/includes/class-cherry-blog-shortcode.php:126
 msgid "Date"
 msgstr "Datum"
 
-#: public/includes/class-cherry-blog-shortcode.php:118
+#: public/includes/class-cherry-blog-shortcode.php:127
 msgid "Last modified date"
 msgstr "Zuletzt geändertes Datum"
 
-#: public/includes/class-cherry-blog-shortcode.php:119
+#: public/includes/class-cherry-blog-shortcode.php:128
 msgid "Random"
 msgstr "Zufällig"
 
-#: public/includes/class-cherry-blog-shortcode.php:120
+#: public/includes/class-cherry-blog-shortcode.php:129
 msgid "Comments number"
 msgstr "Kommentarenanzahl"
 
-#: public/includes/class-cherry-blog-shortcode.php:123
+#: public/includes/class-cherry-blog-shortcode.php:132
 msgid "Order by"
 msgstr "Sortieren nach"
 
-#: public/includes/class-cherry-blog-shortcode.php:124
+#: public/includes/class-cherry-blog-shortcode.php:133
 msgid "Order posts by"
 msgstr "Einträge sortieren nach"
 
-#: public/includes/class-cherry-blog-shortcode.php:131
+#: public/includes/class-cherry-blog-shortcode.php:140
 msgid "Category"
 msgstr "Kategorie"
 
-#: public/includes/class-cherry-blog-shortcode.php:132
+#: public/includes/class-cherry-blog-shortcode.php:141
 msgid "Select categories to show posts from"
 msgstr "Kategorien, deren Beiträge gezeigt werden, auswählen"
 
-#: public/includes/class-cherry-blog-shortcode.php:137
+#: public/includes/class-cherry-blog-shortcode.php:146
 msgid "Show pages"
-msgstr ""
+msgstr "Seiten anzeigen"
 
-#: public/includes/class-cherry-blog-shortcode.php:138
+#: public/includes/class-cherry-blog-shortcode.php:147
 msgid "Show page navigation or not"
-msgstr ""
+msgstr "Seitennavigation anzeigen, oder nicht"
 
-#: public/includes/class-cherry-blog-shortcode.php:148
+#: public/includes/class-cherry-blog-shortcode.php:157
 msgid "Layout"
 msgstr "Layout"
 
-#: public/includes/class-cherry-blog-shortcode.php:149
+#: public/includes/class-cherry-blog-shortcode.php:158
 msgid "Select output layout format"
 msgstr "Format des Output-Layouts wählen"
 
-#: public/includes/class-cherry-blog-shortcode.php:221
-#: public/includes/class-cherry-blog-shortcode.php:232
+#: public/includes/class-cherry-blog-shortcode.php:230
+#: public/includes/class-cherry-blog-shortcode.php:241
 msgid "Specify date format"
-msgstr ""
+msgstr "Datumsformat angeben"
+
+#: public/includes/class-cherry-blog-shortcode.php:235
+msgid "Enable marker's date label"
+msgstr "Datumbezeichnung des Markers aktivieren"
 
 #: public/includes/class-cherry-blog-shortcode.php:236
+msgid "Enable/disable marker's date label"
+msgstr "Datumbezeichnung des Markers aktivieren/deaktivieren"
+
+#: public/includes/class-cherry-blog-shortcode.php:245
 msgid "Prev button label"
 msgstr "Beschriftung für den Zurück-Button"
 
-#: public/includes/class-cherry-blog-shortcode.php:237
+#: public/includes/class-cherry-blog-shortcode.php:246
 msgid "Previous button label text. Text or HTML can be used."
 msgstr ""
 "Beschriftung für den Zurück-Button. Text oder HTML kann verwendet werden."
 
-#: public/includes/class-cherry-blog-shortcode.php:241
+#: public/includes/class-cherry-blog-shortcode.php:250
 msgid "Next button label"
 msgstr "Beschriftung für den Weiter-Button"
 
-#: public/includes/class-cherry-blog-shortcode.php:242
+#: public/includes/class-cherry-blog-shortcode.php:251
 msgid "Next button label text. Text or HTML can be used."
 msgstr ""
 "Beschriftung für den Weiter-Button. Text oder HTML kann verwendet werden."
 
-#: public/includes/class-cherry-blog-shortcode.php:246
+#: public/includes/class-cherry-blog-shortcode.php:255
 msgid "Class"
 msgstr "Class"
 
-#: public/includes/class-cherry-blog-shortcode.php:247
+#: public/includes/class-cherry-blog-shortcode.php:256
 msgid "Extra CSS class"
 msgstr "Extra CSS-Class"
 
-#: public/includes/class-cherry-blog-shortcode.php:368
+#: public/includes/class-cherry-blog-shortcode.php:361
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden."
+
+#~ msgid ""
+#~ "More info <a href=\"https://codex.wordpress.org/Formatting_Date_and_Time"
+#~ "\">here</a> "
+#~ msgstr ""
+#~ "Mehr Info <a href=\"https://codex.wordpress.org/Formatting_Date_and_Time"
+#~ "\">hier</a>"
 
 #~ msgid "Select if you want to folter posts by tag or by category"
 #~ msgstr ""
