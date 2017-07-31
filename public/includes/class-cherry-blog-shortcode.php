@@ -375,17 +375,22 @@ if ( ! class_exists( 'Cherry_Blog_Layout_Shortcode' ) ) {
 
 			ob_start();
 
-			$post_counter = 0;
-			$index_counter = 1;
+			$post_counter     = 0;
+			$index_counter    = 1;
 			$break_point_date = '';
 
-			while ( $posts_query->have_posts() ) {
-				$posts_query->the_post();
+			global $post;
+
+			foreach ( $posts_query->posts as $post ) {
+				setup_postdata( $post );
 				$template_file = Cherry_Blog_Template_Loader::get_template( 'layout-' . $layout, 'content' );
 				include $template_file;
 			}
+
 			$posts = ob_get_clean();
-			Cherry_Blog_Layouts_Data::reset_main_query();
+
+			wp_reset_postdata();
+			wp_reset_query();
 
 			switch ( $layout ) {
 				case 'grid':
